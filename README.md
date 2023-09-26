@@ -1,5 +1,5 @@
 <div align="center">
-<img width="80px" src="book/assets/logo.png"> 
+<img width="80px" src="https://avatars.githubusercontent.com/u/45135504?s=200&v=4"> 
 
 # Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://wt4msp.github.io/tutorial)
