@@ -4,7 +4,7 @@
 # Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://wt4msp.github.io/tutorial)
 
-[Cyrus Vahidi](http://cyrusvahidi.com)<sup>1</sup>, [Chris Mitcheltree](https://christhetr.ee/)<sup>1</sup> 
+[Cyrus Vahidi](http://cyrusvahidi.com)<sup>1</sup>, [Christopher Mitcheltree](https://christhetr.ee/)<sup>1</sup> 
  [Vincent Lostanlen](https://lostanlen.com/)<sup>2</sup>
 
 <sup>1</sup> Centre for Digital Music, Queen Mary University of London<br>
