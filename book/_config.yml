@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
-logo: logo.png
+title: Kymatio - Deep Learning meets Wavelet Theory for Music Signal Processing
+author: Cyrus Vahidi, Christopher Mitcheltree, Vincent Lostanlen
+logo: https://www.kymat.io/_static/kymatio.jpg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
