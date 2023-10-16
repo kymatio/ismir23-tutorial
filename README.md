@@ -38,13 +38,14 @@ Create a Python environment and build the book.
 python -m venv env
 source env/bin/activate
 pip install requirements.txt
-./scripts/build-book.sh
+jupyter-book build book/
 ```
 
-Then you can upload the book to GitHub for hosting. 
+Upload the book to GitHub. 
 
 ```
-./scripts/upload-book.sh
+cd book
+ghp-import -n -p -f _build/html
 ```
 
 You can also export the book as a PDF. Note that this requires having TeX installed. 
