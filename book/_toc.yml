@@ -17,7 +17,7 @@ parts:
 
   - caption: 'Introduction to Scattering'
     chapters:
-    - file: ch3_scattering/cqt
+    - file: ch3_scattering/scalogram
     - file: ch3_scattering/scat1d
     - file: ch3_scattering/design
     - file: ch3_scattering/jtfs
@@ -27,7 +27,7 @@ parts:
     - file: ch4_mir/instrument_classification
     - file: ch4_mir/boundary_detection
 
-  - caption: 'GEAR'
+  - caption: 'GEAR: Generative Evaluation of Audio Representations'
     chapters:
     - file: ch5_gear/gear
     - file: ch5_gear/isomap
