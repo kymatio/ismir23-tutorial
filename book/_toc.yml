@@ -21,21 +21,25 @@ parts:
     - file: ch3_scattering/scat1d
     - file: ch3_scattering/design
     - file: ch3_scattering/jtfs
+    - file: ch3_scattering/1_intro_to_scattering
 
   - caption: 'Scattering in MIR'
     chapters:
     - file: ch4_mir/instrument_classification
     - file: ch4_mir/boundary_detection
+    - file: ch4_mir/2_mir_tasks
 
   - caption: 'GEAR: Generative Evaluation of Audio Representations'
     chapters:
     - file: ch5_gear/gear
     - file: ch5_gear/isomap
+    - file: ch5_gear/3_gear
 
   - caption: 'Differentiable Time-Frequency Analysis'
     chapters:
     - file: ch6_dtfa/mesostructures_loss
     - file: ch6_dtfa/parametric_synth
+    - file: ch6_dtfa/4_dtfa
 
   - caption: 'Resources'
     chapters:
