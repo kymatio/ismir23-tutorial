@@ -1,3 +1,4 @@
-jupyter-book
-matplotlib
-numpy
+ghp-import==2.1.0
+jupyter-book==0.15.1
+kymatio==0.4.0.dev0
+pip-chill==1.0.3
