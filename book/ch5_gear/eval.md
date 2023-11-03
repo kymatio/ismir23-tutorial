@@ -19,6 +19,9 @@ We select three components for the manifold visualization. The audio dataset des
 
 ## Generative Evaluation of MFCCs
 
+We observe that in the case of MFCCs, the Isomap embedding forms a curved 2-D manifold, whereas our dataset contains three factors of variability.
+Only the fundamental frequency $f_c$ clearly aligns with one of the Cartesian coordinates. Meanwhile, similarities between amplitude modulation rates $f_{m}$ and chirp rates $\gamma$ are not represented faithfully. Therefore, neighboring points on the graph may have very dissimilar values of $f_m$ and $\gamma$. 
+
 ## Generative Evaluation of `Scattering1D`
 
 ## Generative Evaluation of `TimeFrequencyScattering`
