@@ -1,3 +1,4 @@
-# Playing Techniques Dataset
+Playing Techniques Dataset
+==========================
 
 - Visualizing the playing techniques

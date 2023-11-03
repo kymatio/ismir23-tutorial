@@ -1,4 +1,5 @@
-# Parameter Estimation by Gradient Descent
+Parameter Estimation by Gradient Descent
+========================================
 
 - Visualize gradient fields 
 - show the routine 

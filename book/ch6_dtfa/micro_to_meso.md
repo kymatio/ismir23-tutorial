@@ -1,6 +1,7 @@
-# From the microscale to the mesoscale
+From the microscale to the mesoscale
+====================================
 
-## Similarity at the _mesoscale_
+Similarity at the _mesoscale_
 --------------------------------
 ```{image} /assets/figures/dtfa/overlap_chirps.png
 :alt: Overlapping Chirps.
@@ -16,9 +17,10 @@ If the two chirps had equal chirp rate, they would be maximally disjoint, hence 
 Despite displacements in time, our perception of how acoustically similar they sound remains. 
 Hence we need a distance representation that reflects similarity in _mesostructure_, that is, time-frequency evolution beyond the _microscale_.
 
+<!-- ![C-3PO_droid](/assets/figures/dtfa/chirps.gif) -->
 ```{image} /assets/figures/dtfa/chirps.gif
 :alt: Chirps varying in chirp rate. Bars indicate Multiscale Spectral Distance and JTFS distance
-:width: 300px
+:width: 500px
 :align: center
 ```
 The moving image above illustrates the need for a similarity representation that goes beyond short-time Fourier analysis. 
@@ -29,6 +31,6 @@ In fact, the distance begins to increase when the chirp rates are equal, illustr
 
 - plot distance against chirp rate
 
-## Invariance to time-shifts
+Invariance to time-shifts
 ----------------------------
 - Plot distance against time shifts

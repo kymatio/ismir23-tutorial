@@ -1,5 +1,5 @@
-# DTFA: Differentiable Time–Frequency Analysis
-==============================================
+DTFA: Differentiable Time-Frequency Analysis
+============================================
 
 The advent of differentiable digital signal processing (DDSP) in music information retrieval has greatly advanced our ability to train neural networks on real-world audio with little or no supervision [1].
 Since 2020, DDSP models have found fruitful applications in voice and instrument modelling, synthesizer control, pitch estimation, source separation, and parameter estimation.
