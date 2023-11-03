@@ -41,7 +41,6 @@ parts:
     chapters:
     - file: ch5_gear/gear
     - file: ch5_gear/amfm_synth
-    - file: ch5_gear/isomap
     - file: ch5_gear/eval
     - file: ch5_gear/knn
     - file: ch5_gear/4_gear
