@@ -19,18 +19,38 @@ We select three components for the manifold visualization. The audio dataset des
 
 Generative Evaluation of MFCCs
 ------------------------------
+```{image} /assets/figures/gear/isomap_mfccs.png
+:alt: Manifold embedding of MFCCs.
+:width: 500px
+:align: center
+```
 
 We observe that in the case of MFCCs, the Isomap embedding forms a curved 2-D manifold, whereas our dataset contains three factors of variability.
 Only the fundamental frequency $f_c$ clearly aligns with one of the Cartesian coordinates. Meanwhile, similarities between amplitude modulation rates $f_{m}$ and chirp rates $\gamma$ are not represented faithfully. Therefore, neighboring points on the graph may have very dissimilar values of $f_m$ and $\gamma$. 
 
 Generative Evaluation of `Scattering1D`
 ---------------------------------------
+```{image} /assets/figures/gear/isomap_scat1d.png
+:alt: Manifold embedding of scattering.
+:width: 500px
+:align: center
+```
 
 Generative Evaluation of `TimeFrequencyScattering`
 -----------------------------------------------------
+```{image} /assets/figures/gear/isomap_jtfs.png
+:alt: Manifold embedding of JTFS.
+:width: 500px
+:align: center
+```
 
 Generative Evaluation of `OpenL3`
 -----------------------------------------------------
+```{image} /assets/figures/gear/isomap_openl3.png
+:alt: Manifold embedding of OpenL3 embeddings.
+:width: 500px
+:align: center
+```
 
 Fig. \ref{fig:isomaps}(b) and (c) show three-dimensional (3-D) visualizations of the Isomap embeddings for time scattering ($Q=1$) and time--frequency scattering ($Q=8$), respectively. 
 
