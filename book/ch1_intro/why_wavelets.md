@@ -1,5 +1,4 @@
 # Why use wavelets in music information retrieval?
-==================================================
 
 The modern theory of wavelets dates back to the 1980s, with wide industrial applications as soon as the 1990s.
 In comparison, the renewed interest for deep learning is more recent: around the year 2012 in speech and image processing and at ISMIR a few years later.
@@ -30,6 +29,16 @@ Chapter 4 will evaluate the abilities of Open-L3 for unsupervised learning of th
 
 ## 2. For physical interpretability
 -----------------------------------
+A well-known shortcoming of deep neural networks is that their activations are difficult to interpret beyond the first layer.
+Although this is not necessarily a concern for MIR products, it does hamper the ability of neural networks to advance scientific knowledge in musical acoustics and digital humanities.
+Meanwhile, wavelet coefficients are linked to precise physical quantities, such as time scale, center frequency, bandwidth, and energy.
+The same is true of scattering transforms, in which the first-order wavelets relate to carrier frequencies whereas second-order wavelets relate to modulation frequencies.
+Chapters 2 and 3 will explain how to construct filterbanks for wavelet transforms and scattering transforms respectively.
+Then, Chapter 4 will show how a scattering transform may be interfaced with a deep convolutional network so as to perform audio classification of playing techniques such as tremolo and vibrato.
+With a gradient-based method known as layerwise relevance propagation (LRP), we will visualize which coefficient is most informative to the classifier for any given audio input.
+Hence, this kind of hybrid architecture offers insight on the physical underpinnings of musical playing techniques: for example, the scattering coefficient which are associated to the vibrato rate stands out as a more relevant feature than those associated to the spectral envelope.
+This is consistent with our understanding of sound production and could not have been achieved with a spectrogram-based neural network.
+
 
 ## 3. For biological plausibility
 ---------------------------------
