@@ -25,7 +25,7 @@ This tutorial encompasses:
 
 Motivation
 -------------
-For the MIR academic community, the significance of scattering transforms in audio classification, timbre representation, and other areas is of paramount importance. Recent scholarly work underscores the capabilities of JTFS in representing distinctions among musical instruments and their associated playing techniques {cite}`jasmp`. Moreover, recent advancements have seen JTFS being employed to fine-tune parameters in sound synthesis {cite}`vahidi meso`.
+For the MIR academic community, the significance of scattering transforms in audio classification, timbre representation, and other areas is of paramount importance. Recent scholarly work underscores the capabilities of JTFS in representing distinctions among musical instruments and their associated playing techniques {cite}`jasmp`. Moreover, recent advancements have seen JTFS being employed to fine-tune parameters in sound synthesis {cite}`vahidi2023mesostructures`.
 
 This tutorial is intended for both MIR scholars and professionals, offering a rigorous introduction to wavelet scattering. Additionally, it will be invaluable for those in the fields of audio engineering and signal processing seeking an advanced understanding of MIR methodologies.
 

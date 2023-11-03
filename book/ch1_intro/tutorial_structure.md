@@ -17,15 +17,22 @@ To access this dataset, please see this tutorial's dedicated channel on the ISMI
 ## Installation
 ---------------
 We rely on the accessible GPU acceleration that's provided in the Colab environment. All installation is handled within the Colab notebooks.
-We make use of a supplementary package `s1dt` for utility functions, feature extraction and algorithms: [scattering-tools](https://github.com/cyrusvahidi/ismir23-kymatio-tools).
+We make use of a supplementary package `s1dt` for utility functions, feature extraction and algorithms: [ismir23-kymatio-tools](https://github.com/cyrusvahidi/ismir23-kymatio-tools).
 The main dependencies in each Colab notebook are `kymatio-0.4-dev` and `s1dt`, which can be installed from source:
 
 ```bash
 !pip install git+https://github.com/kymatio/kymatio.git # install kymatio v0.4-dev from source
-!pip install git+https://github.com/cyrusvahidi/scattering-tools.git # install helper library for this tutorial
+!pip install git+https://github.com/cyrusvahidi/ismir23-kymatio-tools.git # install helper library for this tutorial
 ```
 
 ## Community
 Get in touch via the [Kymatio](https://kymat.io) community on [Github](https://github.com/kymatio/kymatio) or [X](https://twitter.com/KymatioWavelets/).
 
 Contact the {doc}`../ch7_resources/authors`.
+
+```{note}
+The contents of this book will be continually updated after the tutorial at ISMIR on November 5th 2023.
+Time-frequency scattering is currently only available in `beta` via the `kymatio.torch` frontend.
+It can be installed from source and will be officially released in `v0.4`. 
+Stay up-to-date on [X](https://twitter.com/KymatioWavelets/).
+```

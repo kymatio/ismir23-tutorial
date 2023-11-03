@@ -12,15 +12,19 @@ parts:
 
   - caption: 'Basics of wavelets'
     chapters:
-    - file: ch2_wavelets/definition
-    - file: ch2_wavelets/perspectives
+    - file: ch2_wavelets/intro
+    - file: ch2_wavelets/morlet1d
+    - file: ch2_wavelets/filterbanks
+    - file: ch2_wavelets/morlet2d
     - file: ch2_wavelets/1_wavelets
 
   - caption: 'Introduction to Scattering'
     chapters:
+    - file: ch3_scattering/wavelet_transform
+    - file: ch3_scattering/wavelet_fbank
+    - file: ch3_scattering/order1
     - file: ch3_scattering/scalogram
-    - file: ch3_scattering/scat1d
-    - file: ch3_scattering/design
+    - file: ch3_scattering/order2
     - file: ch3_scattering/jtfs
     - file: ch3_scattering/2_scattering
 
