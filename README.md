@@ -2,7 +2,7 @@
 <img width="80px" src="https://avatars.githubusercontent.com/u/45135504?s=200&v=4"> 
 
 # Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing
-[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://wt4msp.github.io/tutorial)
+[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://kymatio.github.io/tutorial)
 
 [Cyrus Vahidi](http://cyrusvahidi.com)<sup>1</sup>, [Christopher Mitcheltree](https://christhetr.ee/)<sup>1</sup> 
  [Vincent Lostanlen](https://lostanlen.com/)<sup>2</sup>
@@ -20,13 +20,13 @@ The ISMIR conference is the world’s leading research forum on processing, sear
 # Cite 
 
 ```
-@book{deeplearning_auto_mix:book,
+@book{kymatio_ismir23:book,
     Author = {Vahidi, Cyrus and Mitcheltree, Chris and Lostanlen, Vincent},
     Month = Nov.,
-    Publisher = {https://wt4msp.github.io/tutorial},
+    Publisher = {https://kymatio.github.io/tutorial-1d},
     Title = {Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing},
     Year = 2023,
-    Url = {https://wt4msp.github.io/tutorial},
+    Url = {https://kymatio.github.io/tutorial-1d},
     doi = {}
 }
 ```

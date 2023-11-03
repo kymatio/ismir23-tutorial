@@ -39,6 +39,40 @@ No prior knowledge of wavelet or scattering transforms is expected.
 
 We aim for this book to be relevant to MIR researchers working on music classification, timbre representation, music similarity, and differentiable signal processing for music analysis and synthesis/digital audio effects.
 
+## Outcomes
+-----------
+The content of this book has been designed to delivered as a tutorial at ISMIR 2023. 
+We intend for this to be an introductory overview of theory and applications of scattering transforms in audio processing and music information retrieval, with strong relevance to the ISMIR community and beyond.
+By following the contents of this book and the computational experiments in the supplementary Python notebooks, we hope that participants
+develop a deeper intuition for the foundational concepts of wavelet scattering for application to 1D signals. 
+After completing this tutorial, readers will have an understanding of:
+
+* The mathematics behind 1D/2D wavelet and the scattering transforms.
+* Wavelet scalogram and first/second-order scattering transform visualizations.
+* How wavelet filterbanks are constructed for scattering transforms.
+* How the scattering transform is computed.
+* How to interpert visualizations of the scattering transforms of synthetic and real-world musical signals.
+* The connection between scattering and other time-frequency representations, such as the CQT.
+* The difference between the scattering transform and Fourier-based time-frequency representations.
+* The physical properties of audio signals captured by scattering, in particular spectrotemporal modulations.
+* The hyperparameters of the scattering transform.
+* How the filterbank parameters affect the resulting numerical representation of an audio signal.
+* Understanding of Kymatio's frontend API for 1D signals. 
+* Avenues for research in MIR with scattering transforms.
+
+For applications in deep learning and MIR, we run the reader through practical examples of: 
+
+* Performing scattering and time-frequency transforms on audio signals with Kymatio.
+* Visualization of scattering and time-frequency scattering coefficients.
+* Preparing and preprocessing scattering transforms for music classification with DNNs.
+* Automatic differentiation of scattering transforms in Torch.
+* Parametric synthesizer similarity representation and retrieval with scattering.
+
+## Contribute to the Kymatio community
+--------------------------------------
+We welcome contributions and participation via the [Kymatio](kymat.io) community on [Github](https://github.com/kymatio/kymatio).
+Feel free to submit issues, pull requests and feature requests.
+
 Authors
 ----------
 
@@ -47,8 +81,6 @@ Authors
 :alt: Cyrus Vahidi
 :width: 300px
 ```
-
-
 
 ## Cite this book
 -----------------
