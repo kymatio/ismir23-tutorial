@@ -29,16 +29,6 @@ For the MIR academic community, the significance of scattering transforms in aud
 
 This tutorial is intended for both MIR scholars and professionals, offering a rigorous introduction to wavelet scattering. Additionally, it will be invaluable for those in the fields of audio engineering and signal processing seeking an advanced understanding of MIR methodologies.
 
-We assume that readers have some prior knowledge in: 
-
-- Python and NumPy programming (familiarity with Pytorch is a bonus, but not essential)
-- Spectrogram visualization
-- Computer-generated sounds
-
-No prior knowledge of wavelet or scattering transforms is expected.
-
-We aim for this book to be relevant to MIR researchers working on music classification, timbre representation, music similarity, and differentiable signal processing for music analysis and synthesis/digital audio effects.
-
 ## Outcomes
 -----------
 The content of this book has been designed to delivered as a tutorial at ISMIR 2023. 

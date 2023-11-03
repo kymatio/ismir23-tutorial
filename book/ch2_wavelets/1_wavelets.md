@@ -1,3 +1,3 @@
-# Notebook 2 - Introduction to Wavelets
+# Notebook 1 - Introduction to Wavelets
 
 [Google Colab]()
