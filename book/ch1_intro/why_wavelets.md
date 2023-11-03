@@ -20,6 +20,13 @@ In this section, we outline five such modes of interaction:
 
 ## 1. For learning with limited labeled data
 --------------------------------------------
+Under a supervised regime, deep neural networks require a large amount of labeled data to produce generalizable representations of audio.
+Since the annotation of music is a tedious process, the adoption of deep learning in MIR is costly and time-consuming.
+This is particularly true in under-appreciated areas of MIR, such as non-Western corpora and expert taxonomies for digital humanities.
+Certainly, recent advances in self-supervised learning (SSL) have opened the possibility of developing application-agnostic, "foundation" models from large amounts of unlabeled data.
+However, the current state of the art in SSL for audio processing is unable to transfer to fine-grained applications; e.g., the classification of instrumental playing techniques (IPT), as we will see in chapter 3.
+Furthermore, SSL models which rely on audiovisual correspoondence, such as Open-L3, lack a "common-sensical" understanding of musical acoustics, in the sense that they misrepresent variations in fundamental frequency or tempo.
+Chapter 4 will evaluate the abilities of Open-L3 for unsupervised learning of the factors of variability underlying a synthetic data, and show that these abilities remain below those of scattering transforms, a wavelet-based representation which requires no pre-training stage.
 
 ## 2. For physical interpretability
 -----------------------------------
