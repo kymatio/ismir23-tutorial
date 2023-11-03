@@ -1,1 +1,1 @@
-# Musical Instrument Classification
+# Musical Playing Technique Classification
