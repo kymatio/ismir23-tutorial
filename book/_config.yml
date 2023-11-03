@@ -4,6 +4,7 @@
 title: "Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing"
 author: Cyrus Vahidi, Christopher Mitcheltree, Vincent Lostanlen
 logo: https://avatars.githubusercontent.com/u/45135504?s=400&u=1aaba37c0e94a44c7aef727151b071278f3e4f3b&v=4
+copyright: "2023"  # Copyright year to be placed in the footer
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

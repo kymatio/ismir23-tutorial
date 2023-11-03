@@ -93,7 +93,7 @@ If you use this book or any of accompanying code in your work please consider ci
     Publisher = {ISMIR},
     Title = {Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing},
     Year = 2023,
-    Url = {https://waveletmsp.github.io/tutorial},
+    Url = {https://kymatio.github.io/ismir23-tutorial},
 }
 ```
 
