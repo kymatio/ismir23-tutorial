@@ -35,6 +35,9 @@ Generative Evaluation of `Scattering1D`
 :width: 700px
 :align: center
 ```
+We also compute time scattering (Scattering1D) coefficients, setting $Q = 1$ and $J = 14$ with global temporal averaging.
+Time scattering does not capture spectrotemporal patterns beyond a log-frequency interval $1/Q_f$, where $Q_f$ is the quality factor (ratio of center frequency to bandwidth).
+Hence, by setting $Q = 1$, which results in $Q_f = 2.5$, we guarantee that the scalogram contains at least one amplitude modulation cycle, given a modulation frequency of at least 4 Hz and a chirp rate of at most 4 octaves per second.
 
 Generative Evaluation of `TimeFrequencyScattering`
 -----------------------------------------------------
