@@ -30,19 +30,30 @@ parts:
 
   - caption: 'Scattering in MIR'
     chapters:
-    - file: ch4_mir/ipt_classification
+    - file: ch4_mir/task
+    - file: ch4_mir/dataset
+    - file: ch4_mir/convnet
+    - file: ch4_mir/eval
+    - file: ch4_mir/extension
     - file: ch4_mir/3_ipt_classification
 
   - caption: 'GEAR: Generative Evaluation of Audio Representations'
     chapters:
     - file: ch5_gear/gear
+    - file: ch5_gear/amfm_synth
     - file: ch5_gear/isomap
+    - file: ch5_gear/eval
+    - file: ch5_gear/knn
     - file: ch5_gear/4_gear
 
   - caption: 'Differentiable Time-Frequency Analysis'
     chapters:
-    - file: ch6_dtfa/mesostructures_loss
-    - file: ch6_dtfa/parametric_synth
+    - file: ch6_dtfa/mss_loss
+    - file: ch6_dtfa/jtfs_loss
+    - file: ch6_dtfa/chirplet_arp
+    - file: ch6_dtfa/micro_to_meso
+    - file: ch6_dtfa/dtfa
+    - file: ch6_dtfa/gradient_viz
     - file: ch6_dtfa/5_dtfa
 
   - caption: 'Resources'

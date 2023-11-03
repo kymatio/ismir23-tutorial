@@ -1,1 +1,1 @@
-# Manifold Embedding of Spectrotemporal Modulations
+# Isomap Manifold Embedding of Spectrotemporal Modulations
