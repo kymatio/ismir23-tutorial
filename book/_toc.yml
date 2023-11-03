@@ -48,11 +48,11 @@ parts:
 
   - caption: 'Differentiable Time-Frequency Analysis'
     chapters:
+    - file: ch6_dtfa/dtfa
     - file: ch6_dtfa/mss_loss
     - file: ch6_dtfa/jtfs_loss
     - file: ch6_dtfa/chirplet_arp
     - file: ch6_dtfa/micro_to_meso
-    - file: ch6_dtfa/dtfa
     - file: ch6_dtfa/gradient_viz
     - file: ch6_dtfa/5_dtfa
 
