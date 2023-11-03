@@ -9,9 +9,15 @@ A minimal DDSP model requires three operators: a deep neural network $f_W$, a sy
 The originality of the DDSP paradigm is that all operators should be differentiable so as to evaluate the gradient of $L$ with respect to neural network weights $W$.
 Earlier at ISMIR 2023, tutorial 2 was devoted to the differentiable programming of an audio synthesizer $g$ for musical applications [3].
 In this tutorial, we extend the scientific material of [3] by discussing the impact of the choice of loss function $\mathcal{L}$ on representation learning with DDSP.
-More specifically, we point out some limitations of the most widespread loss function for DDSP to date; namely, multiscale spectrogram distance (MSS).
-We show that replacing MSS by JTFS can help mitigate these limitations, thanks to the ability of JTFS to integrate long-range dependencies over the time–frequency domain.
 
+For the sake of simplicity, we will not be training a deep neural network in this chapter.
+Instead, we will solve a inverse problem of sound matching by gradient descent on the perceptual loss function, given synthetic audio data.
+Within DDSP, this inverse problem typically corresponds to the deepest, non-trainable layer of backpropagation.
+We propose to call this non-trainable layer "differentiable time–frequency analysis", or DTFA for short.
+
+We point out some limitations of the most widespread loss function for DDSP to date; namely, multiscale spectrogram distance (MSS).
+Specifically, we will see that, under MSS, the inverse problem solver is exposed to several issues: slow convergence, local minima, sensitivity to initialization, and sensitivity to time shifts between target and reconstruction.
+In comparison, JTFS enables a fast convergence to the global optimum, thanks to its numerical stability and its the ability to integrate long-range dependencies over the time–frequency domain.
 
 ## References
 -------------
