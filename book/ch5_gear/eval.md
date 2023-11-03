@@ -19,9 +19,9 @@ We select three components for the manifold visualization. The audio dataset des
 
 Generative Evaluation of MFCCs
 ------------------------------
-```{image} /assets/figures/gear/isomap_mfccs.png
+```{image} /assets/figures/gear/isomap_mfcc.png
 :alt: Manifold embedding of MFCCs.
-:width: 500px
+:width: 700px
 :align: center
 ```
 
@@ -32,7 +32,7 @@ Generative Evaluation of `Scattering1D`
 ---------------------------------------
 ```{image} /assets/figures/gear/isomap_scat1d.png
 :alt: Manifold embedding of scattering.
-:width: 500px
+:width: 700px
 :align: center
 ```
 
@@ -40,7 +40,7 @@ Generative Evaluation of `TimeFrequencyScattering`
 -----------------------------------------------------
 ```{image} /assets/figures/gear/isomap_jtfs.png
 :alt: Manifold embedding of JTFS.
-:width: 500px
+:width: 700px
 :align: center
 ```
 
@@ -48,7 +48,7 @@ Generative Evaluation of `OpenL3`
 -----------------------------------------------------
 ```{image} /assets/figures/gear/isomap_openl3.png
 :alt: Manifold embedding of OpenL3 embeddings.
-:width: 500px
+:width: 700px
 :align: center
 ```
 

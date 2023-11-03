@@ -17,9 +17,10 @@ If the two chirps had equal chirp rate, they would be maximally disjoint, hence 
 Despite displacements in time, our perception of how acoustically similar they sound remains. 
 Hence we need a distance representation that reflects similarity in _mesostructure_, that is, time-frequency evolution beyond the _microscale_.
 
+<!-- ![C-3PO_droid](/assets/figures/dtfa/chirps.gif) -->
 ```{image} /assets/figures/dtfa/chirps.gif
 :alt: Chirps varying in chirp rate. Bars indicate Multiscale Spectral Distance and JTFS distance
-:width: 300px
+:width: 500px
 :align: center
 ```
 The moving image above illustrates the need for a similarity representation that goes beyond short-time Fourier analysis. 
