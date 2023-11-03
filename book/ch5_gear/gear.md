@@ -1,6 +1,7 @@
-# GEAR: Generative Evaluation of Audio Representations
+GEAR: Generative Evaluation of Audio Representations
+=====================================================
 
-## Motivation
+Motivation
 -------------
 
 Within the domain of machine listening, frameworks like the "Holistic Evaluation of Audio Representations" (HEAR) provide comprehensive methodologies for assessing statistical models across multiple machine listening tasks. 
@@ -12,7 +13,7 @@ Here, the emphasis is on the generation of datasets comprising sounds characteri
 Using the Kymatio package, we explore the acoustic representation of amplitude and frequency modulated audio signals, with the motivation to understand and visualize the signal characteristics represented by scattering and time-frequency scattering transforms (as in [1]). 
 We use this framework as a basis for comparing scattering transforms to other time-frequency and deep feature acoustic representations that are commonly used to evaluate audio generation systems and sound similarity.
 
-## Task
+Task
 -------
 We will construct and embed a dataset of signals with the Isomap manifold embedding algorithm which, when effectively represented, should materialize as a mesh-like manifold, that suggests a linear correlation of its principal components with the parameters of the given sound synthesizer, hence exhibiting disentanglement of these acoustic properties.
 
@@ -39,7 +40,7 @@ We analyze the resemblance between the generated signals by mapping them onto a 
 
 By situating a paradigm akin to GEAR, we aim to highlight the distinctions and intricacies of various audio embeddings, deepening the understanding and capability to evaluate audio representations in the field of machine listening research.
 
-## References
+References
 -------------
 1. ["Differentiable Time-Frequency Scattering on GPU" by John Muradeli, Cyrus Vahidi, Changhong Wang, Han Han, Vincent Lostanlen, Mathieu Lagrange, George Fazekas](https://arxiv.org/abs/2204.08269)
 

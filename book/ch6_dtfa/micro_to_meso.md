@@ -1,6 +1,7 @@
-# From the microscale to the mesoscale
+From the microscale to the mesoscale
+====================================
 
-## Similarity at the _mesoscale_
+Similarity at the _mesoscale_
 --------------------------------
 ```{image} /assets/figures/dtfa/overlap_chirps.png
 :alt: Overlapping Chirps.
@@ -29,6 +30,6 @@ In fact, the distance begins to increase when the chirp rates are equal, illustr
 
 - plot distance against chirp rate
 
-## Invariance to time-shifts
+Invariance to time-shifts
 ----------------------------
 - Plot distance against time shifts

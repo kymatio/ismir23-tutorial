@@ -1,3 +1,4 @@
-# Differentiable Chirplet Arpeggiator
+Differentiable Chirplet Arpeggiator
+===================================
 
 - chirplet arpeggiator

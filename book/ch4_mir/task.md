@@ -1,5 +1,5 @@
-# Musical Playing Technique Classification with Hybrid Scattering ConvNets
----
+Musical Playing Technique Classification with Hybrid Scattering ConvNets
+========================================================================
 
 In Music Information Retrieval (MIR), understanding and differentiating between various facets of musical sound holds significant importance. 
 One such facet, which adds depth to the auditory experience of timbre, is the expressive technique employed by the musician during the act of playing an instrument. 
@@ -22,7 +22,7 @@ The aim is not only to assess the efficacy of each approach but also to discern 
 Drawing upon the foundational knowledge acquired in the prior sections on scattering transforms, we will develop a nuanced understanding of how these techniques effectively discern and classify diverse musical playing techniques.
 
 
-## References
+References
 ----------
 1. ["Extended playing techniques: the next milestone in musical instrument recognition" by Lostanlen et al.](https://www.lostanlen.com/wp-content/uploads/2019/11/lostanlen2018dlfm.pdf)
 

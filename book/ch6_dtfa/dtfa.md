@@ -1,3 +1,4 @@
-# DTFA: Differentiable Time-Frequency Analysis
+DTFA: Differentiable Time-Frequency Analysis
+============================================
 
 - intro to DTFA framework

@@ -1,3 +1,4 @@
-# Time-Frequency Scattering Distance
+Time-Frequency Scattering Distance
+==================================
 
 - computing the JTFS loss

@@ -1,4 +1,5 @@
-# AM/FM Chirp Dataset Generation
+AM/FM Chirp Dataset Generation
+==============================
 We design a parametric sound synthesizer to generate a dataset of amplitude modulated chirp (AM/FM) signals, that is controlled by three parameters: carrier frequency ($f_c$, in Hz), amplitude modulation frequency ($f_m$, in Hz) and chirp rate ($\gamma$, in octaves/second).
 
 These are an idealization of the types of modulations found in musical instrument playing techniques. 

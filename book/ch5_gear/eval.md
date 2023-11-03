@@ -1,5 +1,5 @@
-# Generative Evaluation of Audio Representations
-------------------------------------------------
+Generative Evaluation of Audio Representations
+==============================================
 We compute the manifold embedding of the generated dataset's nearest neighbor graph under a number acoustic representations of the dataset:
 
 1. Mel-frequency Cepstral Coefficients
@@ -17,16 +17,20 @@ To compute the nearest neighbor graph, we consider the 40 nearest neighbors for 
 
 We select three components for the manifold visualization. The audio dataset described in Section \ref{sec:dataset} characterizes three independent degrees of freedom, therefore we postulate that Isomap will reveal whether the coordinates of an audio representation reflect similarities within the AM/FM signals. 
 
-## Generative Evaluation of MFCCs
+Generative Evaluation of MFCCs
+------------------------------
 
 We observe that in the case of MFCCs, the Isomap embedding forms a curved 2-D manifold, whereas our dataset contains three factors of variability.
 Only the fundamental frequency $f_c$ clearly aligns with one of the Cartesian coordinates. Meanwhile, similarities between amplitude modulation rates $f_{m}$ and chirp rates $\gamma$ are not represented faithfully. Therefore, neighboring points on the graph may have very dissimilar values of $f_m$ and $\gamma$. 
 
-## Generative Evaluation of `Scattering1D`
+Generative Evaluation of `Scattering1D`
+---------------------------------------
 
-## Generative Evaluation of `TimeFrequencyScattering`
+Generative Evaluation of `TimeFrequencyScattering`
+-----------------------------------------------------
 
-## Generative Evaluation of `OpenL3`
+Generative Evaluation of `OpenL3`
+-----------------------------------------------------
 
 Fig. \ref{fig:isomaps}(b) and (c) show three-dimensional (3-D) visualizations of the Isomap embeddings for time scattering ($Q=1$) and time--frequency scattering ($Q=8$), respectively. 
 
