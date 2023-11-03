@@ -34,7 +34,7 @@ parts:
     - file: ch4_mir/dataset
     - file: ch4_mir/convnet
     - file: ch4_mir/eval
-    - file: ch4_mir/extension
+    - file: ch4_mir/extensions
     - file: ch4_mir/3_ipt_classification
 
   - caption: 'GEAR: Generative Evaluation of Audio Representations'

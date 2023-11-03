@@ -29,7 +29,7 @@ For the MIR academic community, the significance of scattering transforms in aud
 
 This tutorial is intended for both MIR scholars and professionals, offering a rigorous introduction to wavelet scattering. Additionally, it will be invaluable for those in the fields of audio engineering and signal processing seeking an advanced understanding of MIR methodologies.
 
-## Outcomes
+Outcomes
 -----------
 The content of this book has been designed to delivered as a tutorial at ISMIR 2023. 
 We intend for this to be an introductory overview of theory and applications of scattering transforms in audio processing and music information retrieval, with strong relevance to the ISMIR community and beyond.
@@ -58,7 +58,7 @@ For applications in deep learning and MIR, we run the reader through practical e
 * Automatic differentiation of scattering transforms in Torch.
 * Parametric synthesizer similarity representation and retrieval with scattering.
 
-## Contribute to the Kymatio community
+Contribute to the Kymatio community
 --------------------------------------
 We welcome contributions and participation via the [Kymatio](kymat.io) community on [Github](https://github.com/kymatio/kymatio).
 Feel free to submit issues, pull requests and feature requests.
@@ -84,7 +84,7 @@ Authors
 :width: 300px
 ```
 
-## Cite this book
+Cite this book
 -----------------
 If you use this book or any of accompanying code in your work please consider citing this book.
 
@@ -99,7 +99,7 @@ If you use this book or any of accompanying code in your work please consider ci
 }
 ```
 
-## Contents
+Contents
 -----------
 ```{tableofcontents}
 ```
