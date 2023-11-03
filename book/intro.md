@@ -72,6 +72,18 @@ Authors
 :width: 300px
 ```
 
+[**Christopher Mitcheltree**](https://christhetr.ee/) 
+```{image} /assets/cm.jpeg
+:alt: Chirstopher Mitcheltree
+:width: 300px
+```
+
+[**Vincent Lostanlen**](https://lostanlencom) 
+```{image} /assets/vl.jpeg
+:alt: Vincent Lostanlen
+:width: 300px
+```
+
 ## Cite this book
 -----------------
 If you use this book or any of accompanying code in your work please consider citing this book.
