@@ -4,8 +4,8 @@
 ## Gradient descent in auditory feature space
 ---------------------------------------------
 
-The emerging field of differentiable time–frequency analysis (DTFA) aims to construct a time--invariant operators $\boldsymbol{\Phi}$ whose Jacobian $\boldsymbol{\nabla\Phi}$ is useful for training neural audio models \cite{vahidi2023mesostructures}.
-In recent years, DTFA has been composed with differentiable generators ($\boldsymbol{g}$) and deep neural networks (DNN) $\boldsymbol{f}_{\mathbf{W}}$ within the paradigm of differentiable digital signal processing (DDSP) [1].
+The emerging field of differentiable time–frequency analysis (DTFA) aims to construct a time--invariant operators $\boldsymbol{\Phi}$ whose Jacobian $\boldsymbol{\nabla\Phi}$ is useful for training neural audio models [1].
+In recent years, DTFA has been composed with differentiable generators ($\boldsymbol{g}$) and deep neural networks (DNN) $\boldsymbol{f}_{\mathbf{W}}$ within the paradigm of differentiable digital signal processing (DDSP) [2].
 For any given sound $\boldsymbol{x}$, DDSP seeks to train DNN weights $\mathbf{W}$ so that $(\boldsymbol{\Phi}\circ\boldsymbol{g}\circ\boldsymbol{f}_{\!\mathbf{W}})(\boldsymbol{x})$ is close to $\boldsymbol{\Phi}(\boldsymbol{x})$.
 This is typically achieved by first-order optimization over an unlabeled training set $\mathcal{X} = \{\boldsymbol{x}_1 \ldots \boldsymbol{x}_N \}$ with the following loss function, known as *spectral loss*:
 
@@ -35,4 +35,5 @@ However, the reciprocal is not true: in some cases, the reconstructed signal $\b
 
 ## References
 -------------
-1. ["DDSP: Differentiable Digital Signal Processing" by Jesse Engel, Lamtharn Hantrakul, Chenjie Gu, and Adam Roberts](https://arxiv.org/abs/2001.04643)
+1. ["Mesostructures: Beyond Spectrogram Loss in Differentiable Time-Frequency Analysis" by Cyrus Vahidi, Han Han, Changhong Wang, Mathieu Lagrange, György Fazekas, and Vincent Lostanlen](https://arxiv.org/abs/2301.10183) 
+2. ["DDSP: Differentiable Digital Signal Processing" by Jesse Engel, Lamtharn Hantrakul, Chenjie Gu, and Adam Roberts](https://arxiv.org/abs/2001.04643)
