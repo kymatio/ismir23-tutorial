@@ -171,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_structure.html">Tutorial Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_scope.html">Tutorial Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1_intro/why_wavelets.html">Why use wavelets in music information retrieval?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics of wavelets</span></p>
 <ul class="nav bd-sidenav">
@@ -210,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differentiable Time-Frequency Analysis</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mss_loss.html">Multiscale Spectral Distance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddsp.html">Differentiable digital signal processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="micro_to_meso.html">From the microscale to the mesoscale</a></li>
@@ -421,6 +422,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="parameter-estimation-by-gradient-descent">
 <h1>Parameter Estimation by Gradient Descent<a class="headerlink" href="#parameter-estimation-by-gradient-descent" title="Permalink to this heading">#</a></h1>
+<a class="reference internal image-reference" href="../_images/timeshift_chirps.png"><img alt="Chirplet Arpeggios of event rate 4 Hz and chirp rate of 0.5 and 2 octaves / second" class="align-center" src="../_images/timeshift_chirps.png" style="width: 700px;" /></a>
 <a class="reference internal image-reference" href="../_images/grad_field_mss_ts.png"><img alt="" class="align-center" src="../_images/grad_field_mss_ts.png" style="width: 700px;" /></a>
 <a class="reference internal image-reference" href="../_images/grad_field_jtfs.png"><img alt="" class="align-center" src="../_images/grad_field_jtfs.png" style="width: 700px;" /></a>
 <ul class="simple">

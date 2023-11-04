@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>DTFA: Differentiable Time-Frequency Analysis &#8212; Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing</title>
+    <title>Differentiable digital signal processing &#8212; Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing</title>
   
   
   
@@ -64,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch6_dtfa/dtfa';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch6_dtfa/ddsp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Differentiable digital signal processing" href="ddsp.html" />
-    <link rel="prev" title="Notebook 4 - GEAR: Generative Evaluation of Audio Representations" href="../ch5_gear/4_gear.html" />
+    <link rel="next" title="Time-Frequency Scattering Distance" href="jtfs_loss.html" />
+    <link rel="prev" title="DTFA: Differentiable Time-Frequency Analysis" href="dtfa.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -212,8 +212,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differentiable Time-Frequency Analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">DTFA: Differentiable Time-Frequency Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ddsp.html">Differentiable digital signal processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Differentiable digital signal processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="micro_to_meso.html">From the microscale to the mesoscale</a></li>
@@ -298,7 +298,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/kymatio/ismir23-tutorial/issues/new?title=Issue%20on%20page%20%2Fch6_dtfa/dtfa.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/kymatio/ismir23-tutorial/issues/new?title=Issue%20on%20page%20%2Fch6_dtfa/ddsp.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +328,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/ch6_dtfa/dtfa.md" target="_blank"
+      <li><a href="../_sources/ch6_dtfa/ddsp.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>DTFA: Differentiable Time-Frequency Analysis</h1>
+    <h1>Differentiable digital signal processing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,6 +420,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-in-auditory-feature-space">Gradient descent in auditory feature space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiscale-spectrogram-loss">Multiscale spectrogram loss</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
@@ -432,30 +434,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="dtfa-differentiable-time-frequency-analysis">
-<h1>DTFA: Differentiable Time-Frequency Analysis<a class="headerlink" href="#dtfa-differentiable-time-frequency-analysis" title="Permalink to this heading">#</a></h1>
-<p>The advent of differentiable digital signal processing (DDSP) in music information retrieval has greatly advanced our ability to train neural networks on real-world audio with little or no supervision [1].
-Since 2020, DDSP models have found fruitful applications in voice and instrument modelling, synthesizer control, pitch estimation, source separation, and parameter estimation.
-We refer to [2] for a recent review of the state of the art in this domain.</p>
-<p>A minimal DDSP model requires three operators: a deep neural network <span class="math notranslate nohighlight">\(f_W\)</span>, a synthesizer <span class="math notranslate nohighlight">\(g\)</span>, and a perceptual loss function <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>.
-The originality of the DDSP paradigm is that all operators should be differentiable so as to evaluate the gradient of <span class="math notranslate nohighlight">\(L\)</span> with respect to neural network weights <span class="math notranslate nohighlight">\(W\)</span>.
-Earlier at ISMIR 2023, tutorial 2 was devoted to the differentiable programming of an audio synthesizer <span class="math notranslate nohighlight">\(g\)</span> for musical applications [3].
-In this tutorial, we extend the scientific material of [3] by discussing the impact of the choice of loss function <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> on representation learning with DDSP.</p>
-<p>For the sake of simplicity, we will not be training a deep neural network in this chapter.
-Instead, we will solve a inverse problem of sound matching by gradient descent on the perceptual loss function, given synthetic audio data.
-Within DDSP, this inverse problem typically corresponds to the deepest, non-trainable layer of backpropagation.
-We propose to call this non-trainable layer “differentiable time–frequency analysis”, or DTFA for short [4].</p>
-<p>We point out some limitations of the most widespread loss function for DDSP to date; namely, multiscale spectrogram distance (MSS).
-Specifically, we will see that, under MSS, the inverse problem solver is exposed to several issues: slow convergence, local minima, sensitivity to initialization, and sensitivity to time shifts between target and reconstruction.
-In comparison, JTFS enables a fast convergence to the global optimum, thanks to its numerical stability and its the ability to integrate long-range dependencies over the time–frequency domain.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="differentiable-digital-signal-processing">
+<h1>Differentiable digital signal processing<a class="headerlink" href="#differentiable-digital-signal-processing" title="Permalink to this heading">#</a></h1>
+<section id="gradient-descent-in-auditory-feature-space">
+<h2>Gradient descent in auditory feature space<a class="headerlink" href="#gradient-descent-in-auditory-feature-space" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>The emerging field of differentiable time–frequency analysis (DTFA) aims to construct a time–invariant operators <span class="math notranslate nohighlight">\(\boldsymbol{\Phi}\)</span> whose Jacobian <span class="math notranslate nohighlight">\(\boldsymbol{\nabla\Phi}\)</span> is useful for training neural audio models [1].
+In recent years, DTFA has been composed with differentiable generators (<span class="math notranslate nohighlight">\(\boldsymbol{g}\)</span>) and deep neural networks (DNN) <span class="math notranslate nohighlight">\(\boldsymbol{f}_{\mathbf{W}}\)</span> within the paradigm of differentiable digital signal processing (DDSP) [2].
+For any given sound <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>, DDSP seeks to train DNN weights <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> so that <span class="math notranslate nohighlight">\((\boldsymbol{\Phi}\circ\boldsymbol{g}\circ\boldsymbol{f}_{\!\mathbf{W}})(\boldsymbol{x})\)</span> is close to <span class="math notranslate nohighlight">\(\boldsymbol{\Phi}(\boldsymbol{x})\)</span>.
+This is typically achieved by first-order optimization over an unlabeled training set <span class="math notranslate nohighlight">\(\mathcal{X} = \{\boldsymbol{x}_1 \ldots \boldsymbol{x}_N \}\)</span> with the following loss function, known as <em>spectral loss</em>:</p>
+<p><span class="math notranslate nohighlight">\(\mathcal{L}^{\mathrm{sp}}_{\boldsymbol{x}_n}(\mathbf{W}) =\dfrac{1}{2} \big\Vert \!\left(\boldsymbol{\Phi} \circ \boldsymbol{g} \circ \boldsymbol{f}_{\!\mathbf{W}} \right) (\boldsymbol{x}_n)- \boldsymbol{\Phi}(\boldsymbol{x}_n)\big\Vert_2^2\)</span></p>
+<p>By the chain rule, the gradient of <span class="math notranslate nohighlight">\(\mathcal{L}^{\mathrm{sp}}_{\boldsymbol{x}_n}\)</span> is:</p>
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\nabla}\mathcal{L}^{\mathrm{sp}}_{\boldsymbol{x}_n}(\mathbf{W}) =
+\left(\boldsymbol{\Phi}(\boldsymbol{\tilde{x}}_n) -\boldsymbol{\Phi}(\boldsymbol{x}_n)\right)^{\top}\boldsymbol{\nabla}(\boldsymbol{\Phi}\circ\boldsymbol{g})(\boldsymbol{\tilde{\theta}}_n)\dfrac{\partial \boldsymbol{f}_{\!\mathbf{W}}}{\partial \mathbf{W}}(\boldsymbol{x}_n),\)</span>
+where <span class="math notranslate nohighlight">\(\boldsymbol{\tilde{\theta}}_n\)</span> is a shorthand for <span class="math notranslate nohighlight">\(\boldsymbol{f}_{\!\mathbf{W}}(\boldsymbol{x}_n)\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{\tilde{x}}_n\)</span> is a shorthand for <span class="math notranslate nohighlight">\(\boldsymbol{g}(\boldsymbol{\tilde{\theta}}_n)\)</span>.</p>
+<p>The equation above reveals the central role of the Jacobian matrix <span class="math notranslate nohighlight">\(\boldsymbol{\nabla}(\boldsymbol{\Phi}\circ\boldsymbol{g})(\boldsymbol{\tilde{\theta}}_n) = \boldsymbol{\nabla}\boldsymbol{\Phi}(\boldsymbol{\tilde{x}}_n) \boldsymbol{\nabla}\boldsymbol{g}(\boldsymbol{\tilde{\theta}}_n)\)</span> in the learning dynamics of DDSP.
+In particular, its null space spans the infinitesimal variations in <span class="math notranslate nohighlight">\(\boldsymbol{\tilde{\theta}}\)</span> which have no effect on <span class="math notranslate nohighlight">\(\boldsymbol{\Phi}(\boldsymbol{\tilde{x}})\)</span> whereas its image spans infinitesimal variations in <span class="math notranslate nohighlight">\(\boldsymbol{\Phi}(\boldsymbol{\tilde{x}})\)</span> which are achievable from <span class="math notranslate nohighlight">\(\boldsymbol{\tilde{\theta}}\)</span>.
+It follows that <span class="math notranslate nohighlight">\(\boldsymbol{\Phi}\)</span> must be chosen carefully, even though it only serves at training time and not at test time.
+Practically speaking, small Euclidean distances of the form <span class="math notranslate nohighlight">\(\Vert \boldsymbol{\Phi}(\boldsymbol{\tilde{x}}) - \boldsymbol{\Phi}(\boldsymbol{x})\Vert_2\)</span> should correlate with dissimilarity judgments from human listeners.</p>
+</section>
+<section id="multiscale-spectrogram-loss">
+<h2>Multiscale spectrogram loss<a class="headerlink" href="#multiscale-spectrogram-loss" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>As of today, the most commonly used DTFA operator in DDSP is the multi-scale spectrogram loss (MSS).
+MSS concatenates the complex magnitudes of short-term Fourier transforms (STFT) whose window sizes are in a geometric progression.
+The appeal behind MSS is that STFT magnitude coefficients are invariant to the phase of locally sinusoidal components, such as those present in music (i.e., sustained tones) and speech (vowels).
+Furthermore, by resorting to multiple window sizes, MSS mitigates the tradeoff of time–frequency localization: small time lags (resp. frequency intervals) are best captured by short (resp. long) windows.
+Hence, MSS offers a fine characterization of natural sounds while meeting the basic perceptual property of invariance to phase.
+If <span class="math notranslate nohighlight">\(\boldsymbol{\tilde{x}}\)</span> is such that <span class="math notranslate nohighlight">\(\mathrm{MSS}(\boldsymbol{\tilde{x}}) \approx \mathrm{MSS}(\boldsymbol{x})\)</span>, we may posit that human listeners will judge it as highly similar to <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>.
+However, the reciprocal is not true: in some cases, the reconstructed signal <span class="math notranslate nohighlight">\(\boldsymbol{\tilde{x}}\)</span> is heard as similar to <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> yet <span class="math notranslate nohighlight">\(\mathrm{MSS}(\boldsymbol{\tilde{x}}) \neq \mathrm{MSS}(\boldsymbol{x})\)</span>, with an associated spectral loss <span class="math notranslate nohighlight">\(\mathcal{L}^{\mathrm{sp}}_{\boldsymbol{x}}\)</span> of the order of <span class="math notranslate nohighlight">\(\Vert \mathrm{MSS}(\boldsymbol{x}) \Vert^2_2\)</span>.</p>
+</section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <ol class="arabic simple">
-<li><p><a class="reference external" href="https://arxiv.org/abs/2001.04643">“DDSP: Differentiable Digital Signal Processing” by Jesse Engel, Lamtharn Hantrakul, Chenjie Gu, and Adam Roberts</a></p></li>
-<li><p><a class="reference external" href="https://arxiv.org/abs/2308.15422">“A Review of Differentiable Digital Signal Processing for Music &amp; Speech Synthesis” by Ben Hayes, Jordie Shier, György Fazekas, Andrew McPherson, and Charalampos Saitis</a></p></li>
-<li><p><a class="reference external" href="https://ismir2023.ismir.net/tutorials/#2-introduction-to-differentiable-audio-synthesizer-programming">“Introduction to Differentiable Audio Synthesizer Programming” by Ben Hayes, Jordie Shier, Chin-Yun Yu, David Südhorn, and Rodrigo Diaz</a></p></li>
 <li><p><a class="reference external" href="https://arxiv.org/abs/2301.10183">“Mesostructures: Beyond Spectrogram Loss in Differentiable Time-Frequency Analysis” by Cyrus Vahidi, Han Han, Changhong Wang, Mathieu Lagrange, György Fazekas, and Vincent Lostanlen</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/2001.04643">“DDSP: Differentiable Digital Signal Processing” by Jesse Engel, Lamtharn Hantrakul, Chenjie Gu, and Adam Roberts</a></p></li>
 </ol>
 </section>
 </section>
@@ -491,20 +505,20 @@ In comparison, JTFS enables a fast convergence to the global optimum, thanks to 
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../ch5_gear/4_gear.html"
+       href="dtfa.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Notebook 4 - GEAR: Generative Evaluation of Audio Representations</p>
+        <p class="prev-next-title">DTFA: Differentiable Time-Frequency Analysis</p>
       </div>
     </a>
     <a class="right-next"
-       href="ddsp.html"
+       href="jtfs_loss.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Differentiable digital signal processing</p>
+        <p class="prev-next-title">Time-Frequency Scattering Distance</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -523,6 +537,8 @@ In comparison, JTFS enables a fast convergence to the global optimum, thanks to 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-in-auditory-feature-space">Gradient descent in auditory feature space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiscale-spectrogram-loss">Multiscale spectrogram loss</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
