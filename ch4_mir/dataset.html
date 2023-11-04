@@ -394,7 +394,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -410,6 +412,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-playing-techniques">Visualizing the playing techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vibrato-tenor-trombone">Vibrato - Tenor Trombone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trill-clarinet">Trill - Clarinet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tremolo-viola">Tremolo - Viola</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flatterzunge-bass-tuba">Flatterzunge - Bass Tuba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bisbigliando-harp">Bisbigliando - Harp</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -421,21 +438,40 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sol-playing-techniques-dataset">
 <h1>SOL Playing Techniques Dataset<a class="headerlink" href="#sol-playing-techniques-dataset" title="Permalink to this heading">#</a></h1>
-<!-- Vibrato -->
-<a class="reference internal image-reference" href="assets/figures/mir/u1-tbn-vibrato.gif"><img alt="U1 visualization of tenor trombone played with vibrato" class="align-center" src="assets/figures/mir/u1-tbn-vibrato.gif" style="width: 500px;" /></a>
-<a class="reference internal image-reference" href="assets/figures/mir/s1-tbn-vibrato.gif"><img alt="S1 visualization of tenor trombone played with vibrato" class="align-center" src="assets/figures/mir/s1-tbn-vibrato.gif" style="width: 500px;" /></a>
-<!-- Trill -->
-<a class="reference internal image-reference" href="assets/figures/mir/u1-clarinet-trill.gif"><img alt="U1 visualization of Clarinet played with trill" class="align-center" src="assets/figures/mir/u1-clarinet-trill.gif" style="width: 500px;" /></a>
-<a class="reference internal image-reference" href="assets/figures/mir/s1-clarinet-trill.gif"><img alt="S1 visualization of Clarinet played with trill" class="align-center" src="assets/figures/mir/s1-clarinet-trill.gif" style="width: 500px;" /></a>
-<!-- Tremolo -->
-<a class="reference internal image-reference" href="assets/figures/mir/u1-viola-tremolo.gif"><img alt="U1 visualization of Viola played with tremolo" class="align-center" src="assets/figures/mir/u1-viola-tremolo.gif" style="width: 500px;" /></a>
-<a class="reference internal image-reference" href="assets/figures/mir/s1-viola-tremolo.gif"><img alt="S1 visualization of Viola played with tremolo" class="align-center" src="assets/figures/mir/s1-viola-tremolo.gif" style="width: 500px;" /></a>
-<!-- Flatterzunge -->
-<a class="reference internal image-reference" href="assets/figures/mir/u1-tuba-flatterzunge.gif"><img alt="U1 visualization of Bass Tuba played with flatterzunge" class="align-center" src="assets/figures/mir/u1-tuba-flatterzunge.gif" style="width: 500px;" /></a>
-<a class="reference internal image-reference" href="assets/figures/mir/s1-viola-tremolo.gif"><img alt="S1 visualization of Bass Tuba played with flatterzunge" class="align-center" src="assets/figures/mir/s1-viola-tremolo.gif" style="width: 500px;" /></a>
-<!-- Bisbigliando -->
-<a class="reference internal image-reference" href="assets/figures/mir/u1-harp-bisbigliando.gif"><img alt="U1 visualization of Harp played with Bisbigliando" class="align-center" src="assets/figures/mir/u1-harp-bisbigliando.gif" style="width: 500px;" /></a>
-<a class="reference internal image-reference" href="assets/figures/mir/s1-harp-bisbigliando.gif"><img alt="S1 visualization of Harp played with Bisbigliando" class="align-center" src="assets/figures/mir/s1-harp-bisbigliando.gif" style="width: 500px;" /></a>
+<section id="visualizing-the-playing-techniques">
+<h2>Visualizing the playing techniques<a class="headerlink" href="#visualizing-the-playing-techniques" title="Permalink to this heading">#</a></h2>
+<section id="vibrato-tenor-trombone">
+<h3>Vibrato - Tenor Trombone<a class="headerlink" href="#vibrato-tenor-trombone" title="Permalink to this heading">#</a></h3>
+<!-- !audio[ title ]( /assets/audio/mir/tenor-tbn-vibrato.wav ){ size=10 duration=10 cycle=forever } -->
+<a class="reference internal image-reference" href="../_images/u1-tbn-vibrato.png"><img alt="U1 visualization of tenor trombone played with vibrato" class="align-center" src="../_images/u1-tbn-vibrato.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/s1-tbn-vibrato.png"><img alt="S1 visualization of tenor trombone played with vibrato" class="align-center" src="../_images/s1-tbn-vibrato.png" style="width: 500px;" /></a>
+<div style="display: grid">
+    <audio controls style="justify-self: center">
+        <source src="/assets/audio/mir/tenor-tbn-vibrato.wav" type="audio/wav">
+    </audio> 
+</div>
+</section>
+<section id="trill-clarinet">
+<h3>Trill - Clarinet<a class="headerlink" href="#trill-clarinet" title="Permalink to this heading">#</a></h3>
+<a class="reference internal image-reference" href="../_images/u1-clarinet-trill.png"><img alt="U1 visualization of Clarinet played with trill" class="align-center" src="../_images/u1-clarinet-trill.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/s1-clarinet-trill.png"><img alt="S1 visualization of Clarinet played with trill" class="align-center" src="../_images/s1-clarinet-trill.png" style="width: 500px;" /></a>
+</section>
+<section id="tremolo-viola">
+<h3>Tremolo - Viola<a class="headerlink" href="#tremolo-viola" title="Permalink to this heading">#</a></h3>
+<a class="reference internal image-reference" href="../_images/u1-viola-tremolo.png"><img alt="U1 visualization of Viola played with tremolo" class="align-center" src="../_images/u1-viola-tremolo.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/s1-viola-tremolo.png"><img alt="S1 visualization of Viola played with tremolo" class="align-center" src="../_images/s1-viola-tremolo.png" style="width: 500px;" /></a>
+</section>
+<section id="flatterzunge-bass-tuba">
+<h3>Flatterzunge - Bass Tuba<a class="headerlink" href="#flatterzunge-bass-tuba" title="Permalink to this heading">#</a></h3>
+<a class="reference internal image-reference" href="../_images/u1-tuba-flatterzunge.png"><img alt="U1 visualization of Bass Tuba played with flatterzunge" class="align-center" src="../_images/u1-tuba-flatterzunge.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/s1-viola-tremolo.png"><img alt="S1 visualization of Bass Tuba played with flatterzunge" class="align-center" src="../_images/s1-viola-tremolo.png" style="width: 500px;" /></a>
+</section>
+<section id="bisbigliando-harp">
+<h3>Bisbigliando - Harp<a class="headerlink" href="#bisbigliando-harp" title="Permalink to this heading">#</a></h3>
+<a class="reference internal image-reference" href="../_images/u1-harp-bisbigliando.png"><img alt="U1 visualization of Harp played with Bisbigliando" class="align-center" src="../_images/u1-harp-bisbigliando.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/s1-harp-bisbig.png"><img alt="S1 visualization of Harp played with Bisbigliando" class="align-center" src="../_images/s1-harp-bisbig.png" style="width: 500px;" /></a>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -492,6 +528,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-playing-techniques">Visualizing the playing techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vibrato-tenor-trombone">Vibrato - Tenor Trombone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trill-clarinet">Trill - Clarinet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tremolo-viola">Tremolo - Viola</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flatterzunge-bass-tuba">Flatterzunge - Bass Tuba</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bisbigliando-harp">Bisbigliando - Harp</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
