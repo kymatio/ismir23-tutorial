@@ -36,6 +36,11 @@ Visualizing the playing techniques
 :width: 500px
 :align: center
 ```
+<div style="display: grid">
+    <audio controls style="justify-self: center">
+        <source src="/assets/audio/mir/clarinet-bb-trill.wav" type="audio/wav">
+    </audio> 
+</div>
 
 ### Tremolo - Viola
 ```{image} /assets/figures/mir/u1-viola-tremolo.png
@@ -49,6 +54,11 @@ Visualizing the playing techniques
 :width: 500px
 :align: center
 ```
+<div style="display: grid">
+    <audio controls style="justify-self: center">
+        <source src="/assets/audio/mir/viola-tremolo.wav" type="audio/wav">
+    </audio> 
+</div>
 
 ### Flatterzunge - Bass Tuba
 ```{image} /assets/figures/mir/u1-tuba-flatterzunge.png
@@ -62,6 +72,12 @@ Visualizing the playing techniques
 :width: 500px
 :align: center
 ```
+<div style="display: grid">
+    <audio controls style="justify-self: center">
+        <source src="/assets/audio/mir/bass-tuba-flatterzunge.wav" type="audio/wav">
+    </audio> 
+</div>
+
 
 ### Bisbigliando - Harp
 ```{image} /assets/figures/mir/u1-harp-bisbigliando.png
@@ -75,3 +91,8 @@ Visualizing the playing techniques
 :width: 500px
 :align: center
 ```
+<div style="display: grid">
+    <audio controls style="justify-self: center">
+        <source src="/assets/audio/mir/harp-bisbigliando.wav" type="audio/wav">
+    </audio> 
+</div>
