@@ -54,10 +54,28 @@ Chapter 3 will present the theory and implementation of JTFS in Kymatio, while c
 
 ## 4. For artistic creation
 ---------------------------
+There is a growing interest for connectionist architectures and iterative refinement in contemporary music creation.
+In particular, artificial neural networks have been used for digital audio synthesis since at least the 1980s.
+However, for aesthetic reasons, certain artist prefer to generate sounds with wavelets and joint time–frequency scattering (JTFS) rather than with pretrained neural networks.
+One such aesthetic reason is that JTFS offers an idealized simulation of auditory perception yet without any exposure to real-world data: as such, it can regarded as a "blank slate" mathematical model for machine perception.
+Furthermore, since JTFS is differentiable, it is amenable to numerical transformation and waveform resynthesis by gradient descent.
+Since 2016, composer Florian Hecker has worked with the Kymatio consortium to produce music under different formats, including:
+- concerts at Alte Oper (Frankfurt)
+- installation at the "Geometry of Now" gallery (Moscow)
+- concerts at the Underground Film Festival (Lausanne)
+- multimedia installations at the Kunsthalle (Vienna)
+- radio broadcast from BBC Maida Vale studios (London)
+- stereocassette for Editions Mego (Vienna)
+- illustrated book for Sternberg Press (Berlin)
+- CD release for Urbanomic (London)
+- [vinyl release](https://www.youtube.com/watch?v=e3VJ-I5Wxl4) for Warp Records (London)
+These creations illustrate the creative potential of JTFS for digital audio effects [5].
+In Chapter 6, we will elaborate on these findings to show that JTFS can serve in differentiable digital signal processing (DDSP) for perceptually driven transformations of music signals [6].
 
 
-## 5. For the love of mathematics
----------------------------------
+## 5. For mathematical understanding
+------------------------------------
+The mathematical foundations of deep learning remains in infancy [7].
 
 
 ## References
@@ -66,3 +84,6 @@ Chapter 3 will present the theory and implementation of JTFS in Kymatio, while c
 2. ["Explainable Audio Classification of Playing Techniques with Layer-wise Relevance Propagation" by Changhong Wang, Vincent Lostanlen, and Mathieu Lagrange](https://hal.science/hal-04029145/)
 3. ["Music in Our Ears: The Biological Bases of Musical Timbre Perception" by Kailash Patil, Daniel Pressnitzer, Shihab Shamma, and Mounya Elhilali](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002759)
 4. ["Time–frequency scattering accurately models auditory similarities between instrumental playing techniques" by Vincent Lostanlen, Christian El-Hajj, Mathias Rossignol, Grégoire Lafay, Joakim Andén and Mathieu Lagrange](https://arxiv.org/abs/2007.10926)
+5. ["The Shape of RemiXXXes to Come: Audio texture synthesis with time-frequency scattering" by Vincent Lostanlen and Florian Hecker](https://arxiv.org/abs/1906.09334)
+6. ["Mesostructures: Beyond Spectrogram Loss in Differentiable Time-Frequency Analysis" by Cyrus Vahidi, Han Han, Changhong Wang, Mathieu Lagrange, György Fazekas, and Vincent Lostanlen](https://arxiv.org/abs/2301.10183) 
+7. ["Understanding deep convolutional networks" by Stéphane Mallat](https://arxiv.org/abs/1601.04920)
