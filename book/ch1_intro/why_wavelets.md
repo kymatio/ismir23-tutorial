@@ -81,7 +81,7 @@ Similarly, the development of scattering transforms was partially motivated by a
 The development of joint time-frequency scattering has extended this theory to convolutional operators over the time–frequency domain and has strengthened the thematic link between scattering transforms and deep neural networks [10].
 In this context, gaining familiarity with Kymatio can serve as a preparation step for advancing knowledge on neural networks and come up with innovative ideas.
 At ISMIR 2023, one example is found in PESTO, a deep neural network for pitch estimation in which learnable Toeplitz matrices induce a self-supervised transposition-equivariant objective [11].
-Although PESTO does not directly rely on wavelet theory to address its MIR application, it shares a common inspiration with scattering transforms because of its systematic treatment of equivariance to factors of variability in the time--frequency domain.
+Although PESTO does not directly rely on wavelet theory to address its MIR application, it shares a common inspiration with scattering transforms because of its systematic treatment of equivariance to factors of variability in the time--frequency domain: see Chapter 4 in particular.
 
 
 
