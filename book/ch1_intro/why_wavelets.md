@@ -42,8 +42,17 @@ This is consistent with our understanding of sound production and could not have
 
 ## 3. For biological plausibility
 ---------------------------------
+The computational architecture of deep neural networks bear a structural resemblance with the biological cortex.
+However, this resemblance is too elusive to draw precise connections between machine learning and cognitive science.
+In particular, typical MIR systems are inadequate models of the auditory cortex, even so their output responses may correctly predict the ground truth.
+The situation is different with the joint time–frequency scattering transform (JTFS), a deep convolutional operator which is derived from wavelet theory and incurs no learning stage.
+Prior work on auditory neurophysiology has shown that in mammalians, the early stages auditory cortex operates with localized spectrotemporal receptive fields (STRF), which resemble two-dimensional wavelets in the time–frequency domain.
+These findings suggest that JTFS appears as a biologically plausible model of timbre, defined as the low-level cognitive features underlying musical cognition.
+A recent publication has confirmed the usefulness of JTFS in timbre perception research by showing that Euclidean distances between JTFS coefficients predict judgments of timbre dissimilarity between isolated musical notes involving extended playing techniques.
+Chapter 3 will present the theory and implementation of JTFS in Kymatio, while chapter 5 while derive an application to the timbral exploration of an AM/FM synthesizer.
 
-# 4. For artistic creation
+
+## 4. For artistic creation
 --------------------------
 
 ## 5. For the love of mathematics
