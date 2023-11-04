@@ -62,7 +62,7 @@ Chapter 3 will present the theory and implementation of JTFS in Kymatio, while c
 
 ## References
 -------------
-[1] ["From HEAR to GEAR: Generative Evaluation of Audio Representations" by Vincent Lostanlen, Lingyao Yan, and Xianyi Yang](https://hal.science/hal-03979667/)
-[2] ["Explainable Audio Classification of Playing Techniques with Layer-wise Relevance Propagation" by Changhong Wang, Vincent Lostanlen, and Mathieu Lagrange](https://hal.science/hal-04029145/)
-[3] ["Music in Our Ears: The Biological Bases of Musical Timbre Perception" by Kailash Patil, Daniel Pressnitzer, Shihab Shamma, and Mounya Elhilali](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002759)
-[4] ["Time–frequency scattering accurately models auditory similarities between instrumental playing techniques" by Vincent Lostanlen, Christian El-Hajj, Mathias Rossignol, Grégoire Lafay, Joakim Andén and Mathieu Lagrange](https://arxiv.org/abs/2007.10926)
+1. ["From HEAR to GEAR: Generative Evaluation of Audio Representations" by Vincent Lostanlen, Lingyao Yan, and Xianyi Yang](https://hal.science/hal-03979667/)
+2. ["Explainable Audio Classification of Playing Techniques with Layer-wise Relevance Propagation" by Changhong Wang, Vincent Lostanlen, and Mathieu Lagrange](https://hal.science/hal-04029145/)
+3. ["Music in Our Ears: The Biological Bases of Musical Timbre Perception" by Kailash Patil, Daniel Pressnitzer, Shihab Shamma, and Mounya Elhilali](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002759)
+4. ["Time–frequency scattering accurately models auditory similarities between instrumental playing techniques" by Vincent Lostanlen, Christian El-Hajj, Mathias Rossignol, Grégoire Lafay, Joakim Andén and Mathieu Lagrange](https://arxiv.org/abs/2007.10926)
