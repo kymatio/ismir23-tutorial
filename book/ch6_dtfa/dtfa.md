@@ -13,7 +13,7 @@ In this tutorial, we extend the scientific material of [3] by discussing the imp
 For the sake of simplicity, we will not be training a deep neural network in this chapter.
 Instead, we will solve a inverse problem of sound matching by gradient descent on the perceptual loss function, given synthetic audio data.
 Within DDSP, this inverse problem typically corresponds to the deepest, non-trainable layer of backpropagation.
-We propose to call this non-trainable layer "differentiable time–frequency analysis", or DTFA for short.
+We propose to call this non-trainable layer "differentiable time–frequency analysis", or DTFA for short [4].
 
 We point out some limitations of the most widespread loss function for DDSP to date; namely, multiscale spectrogram distance (MSS).
 Specifically, we will see that, under MSS, the inverse problem solver is exposed to several issues: slow convergence, local minima, sensitivity to initialization, and sensitivity to time shifts between target and reconstruction.
@@ -24,3 +24,4 @@ In comparison, JTFS enables a fast convergence to the global optimum, thanks to 
 1. ["DDSP: Differentiable Digital Signal Processing" by Jesse Engel, Lamtharn Hantrakul, Chenjie Gu, and Adam Roberts](https://arxiv.org/abs/2001.04643)
 2. ["A Review of Differentiable Digital Signal Processing for Music \& Speech Synthesis" by Ben Hayes, Jordie Shier, György Fazekas, Andrew McPherson, and Charalampos Saitis](https://arxiv.org/abs/2308.15422)
 3. ["Introduction to Differentiable Audio Synthesizer Programming" by Ben Hayes, Jordie Shier, Chin-Yun Yu, David Südhorn, and Rodrigo Diaz](https://ismir2023.ismir.net/tutorials/#2-introduction-to-differentiable-audio-synthesizer-programming)
+4. ["Mesostructures: Beyond Spectrogram Loss in Differentiable Time-Frequency Analysis" by Cyrus Vahidi, Han Han, Changhong Wang, Mathieu Lagrange, György Fazekas, and Vincent Lostanlen](https://arxiv.org/abs/2301.10183) 
