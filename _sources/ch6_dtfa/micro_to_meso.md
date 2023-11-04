@@ -34,7 +34,7 @@ In fact, the distance begins to increase when the chirp rates are equal, illustr
 Invariance to time-shifts
 ----------------------------
 
-```{image} /assets/figures/dtfa/mss_timeshifts.gif
+```{image} /assets/figures/dtfa/mss_timeshifts.png
 :alt: Spectral loss at various STFT scales, against time-shift
 :width: 500px
 :align: center
