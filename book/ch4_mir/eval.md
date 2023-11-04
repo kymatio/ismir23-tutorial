@@ -9,10 +9,24 @@ Evaluation
 │         test/loss         │    0.6989585161209106     │
 └───────────────────────────┴───────────────────────────┘   
 ```{image} /assets/figures/mir/cm_cqt.png
-:alt: Confusion Matrix on test set for JTFS model
+:alt: Confusion Matrix on test set for CQT model
 :width: 500px
 :align: center
 ```
+
+## Scat1D
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         test/acc          │    0.9504778385162354     │
+│         test/loss         │    0.14028948545455933    │
+└───────────────────────────┴───────────────────────────┘
+```{image} /assets/figures/mir/cm_scat1d.png
+:alt: Confusion Matrix on test set for Scattering1D model
+:width: 500px
+:align: center
+```
+
 
 ## JTFS
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
