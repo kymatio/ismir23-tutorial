@@ -1,3 +1,0 @@
-Differentiable Chirplet Arpeggiator
-===================================
-
