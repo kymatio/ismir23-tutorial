@@ -26,4 +26,4 @@ References
 ----------
 1. ["Extended playing techniques: the next milestone in musical instrument recognition" by Lostanlen et al.](https://www.lostanlen.com/wp-content/uploads/2019/11/lostanlen2018dlfm.pdf)
 
-2. Wang, Changhong, et al. "Playing technique recognition by joint time–frequency scattering." ICASSP 2020-2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2020.
+2. [Wang, Changhong, et al. "Playing technique recognition by joint time–frequency scattering." ICASSP 2020-2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2020.](Playing technique recognition by joint time–frequency scattering)
