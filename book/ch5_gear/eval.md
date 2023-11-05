@@ -57,7 +57,9 @@ We compute the time-frequency scattering coefficients of the dataset, setting th
 - `T = duration * sr` for global temporal averaging.
 - `F = 0` disabled frequency averaging so that the representation is equivariant to pitch transposition and therefore sensitive to variations in pitch.
 
-We can see that the JTFS transform of the dataset recover a 3D cartesian mesh whose principal components align perfectly with the 3 acoustic factors of variability in the dataset.
+In the case of both transformations and the application of Isomap manifold learning, the dataset of AM/FM signals is represented as a 3-D mesh where the principal components align independently with $f_c$, $f_m$ and $\gamma$. 
+
+Both transformations with their respective hyperparameters are capable of disentangling and linearizing fundamental frequency, tremolo rate and chirp rate, which describe spectrotemporal modulation patterns. 
 
 Generative Evaluation of `OpenL3`
 -----------------------------------------------------
@@ -67,12 +69,6 @@ Generative Evaluation of `OpenL3`
 :align: center
 ```
 
-Fig. \ref{fig:isomaps}(b) and (c) show three-dimensional (3-D) visualizations of the Isomap embeddings for time scattering ($Q=1$) and time--frequency scattering ($Q=8$), respectively. 
-
-In the case of both transformations and the application of Isomap manifold learning, the dataset of AM/FM signals is represented as a 3-D mesh where the principal components align independently with $f_c$, $f_m$ and $\gamma$. Both transformations with their respective hyperparameters are capable of disentangling and linearizing fundamental frequency, tremolo rate and chirp rate, which describe spectrotemporal modulation patterns. 
-
 Fig. \ref{fig:isomaps}(c) visualizes the embedding for time scattering when $Q = 8$. 
 
-In this case, we observe that time scattering lies on a 2-D manifold that adequately describes $f_c$ and $\gamma$, yet fails to account for similarity in $f_m$ due to the aforementioned reasons. 
-
-Despite time scattering successfully disentangling the 3 factors of variability when $Q = 1$, other applications may demand a a greater quality factor in order to better localize in frequency.
+In this case, we observe that the dataset lies on a 2-D manifold that fail to describe similarity between the synthesis parameters.

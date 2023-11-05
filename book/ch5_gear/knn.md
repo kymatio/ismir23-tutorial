@@ -33,7 +33,7 @@ We compute an estimate of the parameter $\widetilde{\boldsymbol{\theta}}_i$ as t
     \boldsymbol{\theta}_j.
 \end{equation}
 
-We use the same $K=40$ nearest neighbor graph computed by the Isomap algorithm in the previous section. We regress each example's parameters for each of the audio representations and plot their error ratios
+We use the same $K=40$ nearest neighbor graph computed by the Isomap algorithm in the previous section. We regress each example's parameters for each of the audio representations and plot their error ratios.
 
-All feature representations are capable of regressing carrier frequency $f_c$ with error ratios close to $1$. However, larger performance discrepancies can be observed in modulation frequency and chirp rate. Time scattering and JTFS excel at linearizing modulation frequency in the Euclidean space, with error ratios within range of $0.75$ to $1.5$. Meanwhile, all features except MFCCs extract chirp rate within error ratios between $0.75$ to $1.25$.  
-
+All feature representations are capable of regressing carrier frequency $f_c$ with error ratios close to $1$. However, larger performance discrepancies can be observed in modulation frequency and chirp rate. Time scattering and JTFS excel at linearizing modulation frequency in the Euclidean space, with error ratios within range of $0.75$ to $1.5$. Meanwhile, all scattering features extract chirp rate within error ratios between $0.75$ to $1.25$, while MFCCs fail to account for similarity in modulations.  
+We see that in the case of OpenL3, a significant portion of the regression targets are estimated by a factor of two or more for modulation frequency and chirp rate.
