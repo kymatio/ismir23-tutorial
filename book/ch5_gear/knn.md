@@ -11,6 +11,8 @@ As a quantitative supplement to the visualizations from the previous section, we
 $K$-NN parameter regression relies on Euclidean distances between examples in their feature representations. Therefore, its regression error sheds light on the degree of topological alignment between feature space and parameter space. Such an alignment is essential in common audio recognition tasks, as the parameters are physical correspondents of audio similarity. 
 
 For each example, we start from an empty set of neighbors $\mathcal{N}_0 = \varnothing$. Then at each iteration, we select its closest neighbor by computing its pairwise Euclidean distance with all other examples. We stop after $K$ iterations, resulting in a set of $K$ nearest neighbors.
+
+$$
 \begin{equation}
     \mathcal{N}_{k+1}(\boldsymbol{\theta}_{i}) =
     \mathcal{N}_{k}(\boldsymbol{\theta}_{i})
@@ -24,14 +26,18 @@ For each example, we start from an empty set of neighbors $\mathcal{N}_0 = \varn
     \right\Vert_2
     \right\}
 \end{equation}
+$$
 
 We compute an estimate of the parameter $\widetilde{\boldsymbol{\theta}}_i$ as the average of its values at the $K$ nearest neighbors. We define the error ratio as $\widetilde{\boldsymbol{\theta}}_i/\boldsymbol{\theta}_i$, where:
+
+$$
 \begin{equation}
     \boldsymbol{\widetilde{\theta}}_i =
     \dfrac{1}{K}
     \sum_{\theta_j\in\mathcal{N}_K(\theta_i)}
     \boldsymbol{\theta}_j.
 \end{equation}
+$$
 
 We use the same $K=40$ nearest neighbor graph computed by the Isomap algorithm in the previous section. We regress each example's parameters for each of the audio representations and plot their error ratios.
 
