@@ -18,7 +18,7 @@ $$
     \mathcal{N}_{k}(\boldsymbol{\theta}_{i})
     \cup
     \left\{
-    \argmin_{\boldsymbol{\theta}_{j} \not\in \mathcal{N}_{k}(\boldsymbol{\theta}_{i})}
+    \text{argmin}_{\boldsymbol{\theta}_{j} \not\in \mathcal{N}_{k}(\boldsymbol{\theta}_{i})}
     \left\Vert
     \mathbf{S}g(\boldsymbol{\theta}_{j})
     -
