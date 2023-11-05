@@ -45,7 +45,7 @@ In the notebook in the following section, we will see how these high frequency m
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/bassoon-vibrato.wav" type="audio/wav">
+        <source src="https://raw.githubusercontent.com/kymatio/ismir23-tutorial/main/book/assets/audio/bassoon-vibrato.wav" type="audio/wav">
     </audio> 
 </div>
 
