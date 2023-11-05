@@ -29,8 +29,6 @@ We can see that the JTFS loss is at a minimum when the two chirps are of equal c
 This is not the case for the MSS distance: the distance is not correlated with the discrepancy in chirp rate. 
 In fact, the distance begins to increase when the chirp rates are equal, illustrating the inefficacy of the MSS distance for measuring similarity in spectrotemporal modulations.
 
-- plot distance against chirp rate
-
 Invariance to time-shifts
 ----------------------------
 
