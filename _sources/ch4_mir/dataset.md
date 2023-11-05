@@ -1,27 +1,51 @@
 SOL Playing Techniques Dataset
 ==========================
-A subset of the _Studio-on-line_ dataset labelled according to a taxonomy periodic modulation playing techniques {cite}`wang2023explainable`
+A subset of the _Studio-on-line_ dataset labelled according to a taxonomy periodic modulation playing techniques introduced in Wang et al. (2023) [1].
+
+
+The data consists of 5 possible playing techniques, from 11 distinct musical instruments.
+
+```
+Techniques: ['vibrato', 'trill', 'tremolo', 'bisbigliando', 'flatterzunge']
+
+11 instruments: ['Flutes', 'Strings', 'Horns', 'Trumpets', 'Saxophones', 'PluckedStrings', 'Tubas', 'Oboes', 'Trombones', 'Clarinets', 'Bassoons']
+
+modulation technique  bisbigliando  flatterzunge  tremolo  trill  vibrato
+subset                                                                   
+test                            61           318      515    216       41
+training                       169           905     1513    616      112
+validation                      56           300      502    203       37
+
+subset
+test          1151
+training      3315
+validation    1098
+```
 
 Visualizing the playing techniques
 ----------------------------------
 
+In the examples below, we visualize the $U_1$ and $S_1$ of one of each playing technique in the dataset. 
+Importantly, we see that the modulation patterns in $U_1$ are lost to the averaging operation in $S_1$.
+In the notebook in the following section, we will see how these high frequency modulations are recovered in $S_2$.
+
 ### Vibrato - Tenor Trombone
 <!-- !audio[ title ]( /assets/audio/mir/tenor-tbn-vibrato.wav ){ size=10 duration=10 cycle=forever } -->
 
-```{image} /assets/figures/mir/u1-tbn-vibrato.png
-:alt: U1 visualization of tenor trombone played with vibrato
+```{image} /assets/figures/mir/u1-bassoon-vibrato.png
+:alt: U1 visualization of Bassoon played with vibrato
 :width: 500px
 :align: center
 ```
 
-```{image} /assets/figures/mir/s1-tbn-vibrato.png
-:alt: S1 visualization of tenor trombone played with vibrato
+```{image} /assets/figures/mir/s1-bassoon-vibrato.png
+:alt: S1 visualization of Bassoon played with vibrato
 :width: 500px
 :align: center
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/tenor-tbn-vibrato.wav" type="audio/wav">
+        <source src="/assets/audio/bassoon-vibrato.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -57,7 +81,7 @@ Visualizing the playing techniques
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/viola-tremolo.wav" type="audio/wav">
+        <source src="book/assets/audio/viola-tremolo.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -75,7 +99,7 @@ Visualizing the playing techniques
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/bass-tuba-flatterzunge.wav" type="audio/wav">
+        <source src="/assets/audio/bass-tuba-flatterzunge.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -94,7 +118,7 @@ Visualizing the playing techniques
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/harp-bisbigliando.wav" type="audio/wav">
+        <source src="/assets/audio/harp-bisbigliando.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -153,3 +177,9 @@ The frequential filterbank has its own set of parameters.
 We use `J_fr=3` octaves, with `Q_fr = 2` filters per octave.
 As for time-shift invariance, we can impose frequency transposition invariance with JTFS, by setting `F`, where transposition invariance is achieved over `Q / F` octaves.
 Periodic modulations are invariant to frequency transpositions. In accordance with common fate principles of auditory grouping, the harmonics produced by an instrument will follow congruent spectrotemporal modulation envelopes.
+
+References
+----------
+
+1. ["Explainable Audio Classification of Playing Techniques with Layer-wise Relevance Propagation" by Changhong Wang et al](https://hal.science/hal-04029145/)
+2. https://github.com/changhongw/examod/tree/main Studio-on-Line dataset PMT split.

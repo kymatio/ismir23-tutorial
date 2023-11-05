@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Extensions" href="extensions.html" />
-    <link rel="prev" title="Convnet Training" href="convnet.html" />
+    <link rel="prev" title="SOL Playing Techniques Dataset" href="dataset.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,7 +195,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="task.html">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dataset.html">SOL Playing Techniques Dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convnet.html">Convnet Training</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
@@ -212,8 +211,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/ddsp.html">Differentiable digital signal processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/micro_to_meso.html">From the microscale to the mesoscale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/gradient_viz.html">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
@@ -434,6 +431,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="evaluation">
 <h1>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this heading">#</a></h1>
+<p>We train a convnet over 3 acoustic feature representations: the CQT, time scattering coefficients and joint time-frequency scattering, and evaluate the classification accuracy and confusions between playing techniques.</p>
 <section id="cqt">
 <h2>CQT<a class="headerlink" href="#cqt" title="Permalink to this heading">#</a></h2>
 <p>┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -497,12 +495,12 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="convnet.html"
+       href="dataset.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Convnet Training</p>
+        <p class="prev-next-title">SOL Playing Techniques Dataset</p>
       </div>
     </a>
     <a class="right-next"

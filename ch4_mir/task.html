@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch4_mir/task';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Playing Techniques Dataset" href="dataset.html" />
+    <link rel="next" title="SOL Playing Techniques Dataset" href="dataset.html" />
     <link rel="prev" title="Notebook 2 - Scattering Transforms with Kymatio" href="../ch3_scattering/2_scattering.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -171,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_structure.html">Tutorial Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_scope.html">Tutorial Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1_intro/why_wavelets.html">Why use wavelets in music information retrieval?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics of wavelets</span></p>
 <ul class="nav bd-sidenav">
@@ -193,8 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Scattering in MIR</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataset.html">Playing Techniques Dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convnet.html">Convnet Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">SOL Playing Techniques Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eval.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
@@ -210,9 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differentiable Time-Frequency Analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/mss_loss.html">Multiscale Spectral Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/ddsp.html">Differentiable digital signal processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/micro_to_meso.html">From the microscale to the mesoscale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/gradient_viz.html">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
@@ -432,9 +430,9 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="musical-playing-technique-classification-with-hybrid-scattering-convnets">
 <h1>Musical Playing Technique Classification with Hybrid Scattering ConvNets<a class="headerlink" href="#musical-playing-technique-classification-with-hybrid-scattering-convnets" title="Permalink to this heading">#</a></h1>
 <p>In Music Information Retrieval (MIR), understanding and differentiating between various facets of musical sound holds significant importance.
-One such facet, which adds depth to the auditory experience of timbre, is the expressive technique employed by the musician during the act of playing an instrument.
+One such facet, which adds depth to the auditory experience of timbre, is the expressive technique employed by the musician during the act of playing an instrument [1].
 In this section, we explore the task of classifying distinct musical instrument playing techniques, focusing on 5 expressive techniques that span across 11 diverse instruments.</p>
-<p>Playing techniques can be broadly categorized as either (a) periodic (tremolo, vibrato, trill) or (b) pitch evolutionary (glissando, portamento, acciaccatura).
+<p>Playing techniques can be broadly categorized as either (a) periodic (tremolo, vibrato, trill) or (b) pitch evolutionary (glissando, portamento, acciaccatura) [2].
 In this exercise, we focus on periodic modulations.</p>
 <p>Contrary to the task of musical instrument classification, wherein the primary objective is to identify the source of the musical sound, playing technique classification poses its own challenges and intricacies.</p>
 <p>Multiple instruments can be played with the same technique, and conversely, a single instrument can yield a variety of timbres depending on the technique employed. Central to this variability is the excitation elicited by the instrumentalist, which governs the resulting sound.
@@ -449,8 +447,7 @@ Drawing upon the foundational knowledge acquired in the prior sections on scatte
 <h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://www.lostanlen.com/wp-content/uploads/2019/11/lostanlen2018dlfm.pdf">“Extended playing techniques: the next milestone in musical instrument recognition” by Lostanlen et al.</a></p></li>
-<li><p><a class="github reference external" href="https://github.com/changhongw/examod/tree/main">changhongw/examod</a> Studio-on-Line dataset PMT split.</p></li>
-<li><p><a class="reference external" href="https://hal.science/hal-04029145/">“Explainable Audio Classification of Playing Techniques with Layer-wise Relevance Propagation” by Changhong Wang et al</a></p></li>
+<li><p><a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/9053474?casa_token=DJTf6q4jbjkAAAAA:qeTqZ1j0lFOgQh01DG8ilHttCusz7Kbl2lVM6VjChR-RM1J2cNi9G68YQIxLxkhSLoD2WLqNNQ">Wang, Changhong, et al. “Playing technique recognition by joint time–frequency scattering.” ICASSP 2020-2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2020.</a></p></li>
 </ol>
 </section>
 </section>
@@ -499,7 +496,7 @@ Drawing upon the foundational knowledge acquired in the prior sections on scatte
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Playing Techniques Dataset</p>
+        <p class="prev-next-title">SOL Playing Techniques Dataset</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -171,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_structure.html">Tutorial Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_scope.html">Tutorial Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1_intro/why_wavelets.html">Why use wavelets in music information retrieval?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics of wavelets</span></p>
 <ul class="nav bd-sidenav">
@@ -193,8 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Scattering in MIR</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="task.html">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dataset.html">Playing Techniques Dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convnet.html">Convnet Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">SOL Playing Techniques Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eval.html">Evaluation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
@@ -210,9 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differentiable Time-Frequency Analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/mss_loss.html">Multiscale Spectral Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/ddsp.html">Differentiable digital signal processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/micro_to_meso.html">From the microscale to the mesoscale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/gradient_viz.html">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
@@ -394,7 +392,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -410,6 +410,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -421,6 +429,23 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="extensions">
 <h1>Extensions<a class="headerlink" href="#extensions" title="Permalink to this heading">#</a></h1>
+<p>There are various avenues for future experimentation with hybrid scattering convnets.
+In this tutorial, we only explored 1D convnets along time.
+Time-frequency scattering in Kymatio offers the <code class="docutils literal notranslate"><span class="pre">&quot;joint&quot;</span></code> output format, which is indexed by <code class="docutils literal notranslate"><span class="pre">(path,</span> <span class="pre">frequency,</span> <span class="pre">time)</span></code>.
+Therefore we can do 2D convolutions in the time-frequency domain, where the joint time-frequency scattering paths
+serve as input channels to the convnet.
+This was shown to be effective for classification of musical instrument solos with limited annotated data [1].
+We did not explore the effectiveness of log-compression and mean normalization of scattering paths as was shown in [1] and [2].
+We could explore joint classification of musical instrument and playing technique.
+Various recent works have modelled human perception of similarity between sounds at the level of expressive playing techniques [2], [3].</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Vahidi, Cyrus, et al. “Differentiable Time-Frequency Scattering On GPU.” arXiv preprint arXiv:2204.08269 (2022).</p></li>
+<li><p>Lostanlen, Vincent, et al. “Time–frequency scattering accurately models auditory similarities between instrumental playing techniques.” EURASIP Journal on Audio, Speech, and Music Processing 2021.1 (2021): 1-21.</p></li>
+<li><p>Vahidi, Cyrus, et al. “Perceptual musical similarity metric learning with graph neural networks.” 2023 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA). IEEE, 2023.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -477,6 +502,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch4_mir/dataset';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Convnet Training" href="convnet.html" />
+    <link rel="next" title="Evaluation" href="eval.html" />
     <link rel="prev" title="Musical Playing Technique Classification with Hybrid Scattering ConvNets" href="task.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -197,7 +197,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="task.html">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">SOL Playing Techniques Dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="convnet.html">Convnet Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eval.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
@@ -214,8 +213,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/ddsp.html">Differentiable digital signal processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/micro_to_meso.html">From the microscale to the mesoscale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/gradient_viz.html">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
@@ -434,6 +431,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timefrequencyscattering"><code class="docutils literal notranslate"><span class="pre">TimeFrequencyScattering</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
         </div>
@@ -447,17 +445,37 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sol-playing-techniques-dataset">
 <h1>SOL Playing Techniques Dataset<a class="headerlink" href="#sol-playing-techniques-dataset" title="Permalink to this heading">#</a></h1>
-<p>A subset of the <em>Studio-on-line</em> dataset labelled according to a taxonomy periodic modulation playing techniques <span id="id1">[]</span></p>
+<p>A subset of the <em>Studio-on-line</em> dataset labelled according to a taxonomy periodic modulation playing techniques introduced in Wang et al. (2023) [1].</p>
+<p>The data consists of 5 possible playing techniques, from 11 distinct musical instruments.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Techniques</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;vibrato&#39;</span><span class="p">,</span> <span class="s1">&#39;trill&#39;</span><span class="p">,</span> <span class="s1">&#39;tremolo&#39;</span><span class="p">,</span> <span class="s1">&#39;bisbigliando&#39;</span><span class="p">,</span> <span class="s1">&#39;flatterzunge&#39;</span><span class="p">]</span>
+
+<span class="mi">11</span> <span class="n">instruments</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Flutes&#39;</span><span class="p">,</span> <span class="s1">&#39;Strings&#39;</span><span class="p">,</span> <span class="s1">&#39;Horns&#39;</span><span class="p">,</span> <span class="s1">&#39;Trumpets&#39;</span><span class="p">,</span> <span class="s1">&#39;Saxophones&#39;</span><span class="p">,</span> <span class="s1">&#39;PluckedStrings&#39;</span><span class="p">,</span> <span class="s1">&#39;Tubas&#39;</span><span class="p">,</span> <span class="s1">&#39;Oboes&#39;</span><span class="p">,</span> <span class="s1">&#39;Trombones&#39;</span><span class="p">,</span> <span class="s1">&#39;Clarinets&#39;</span><span class="p">,</span> <span class="s1">&#39;Bassoons&#39;</span><span class="p">]</span>
+
+<span class="n">modulation</span> <span class="n">technique</span>  <span class="n">bisbigliando</span>  <span class="n">flatterzunge</span>  <span class="n">tremolo</span>  <span class="n">trill</span>  <span class="n">vibrato</span>
+<span class="n">subset</span>                                                                   
+<span class="n">test</span>                            <span class="mi">61</span>           <span class="mi">318</span>      <span class="mi">515</span>    <span class="mi">216</span>       <span class="mi">41</span>
+<span class="n">training</span>                       <span class="mi">169</span>           <span class="mi">905</span>     <span class="mi">1513</span>    <span class="mi">616</span>      <span class="mi">112</span>
+<span class="n">validation</span>                      <span class="mi">56</span>           <span class="mi">300</span>      <span class="mi">502</span>    <span class="mi">203</span>       <span class="mi">37</span>
+
+<span class="n">subset</span>
+<span class="n">test</span>          <span class="mi">1151</span>
+<span class="n">training</span>      <span class="mi">3315</span>
+<span class="n">validation</span>    <span class="mi">1098</span>
+</pre></div>
+</div>
 <section id="visualizing-the-playing-techniques">
 <h2>Visualizing the playing techniques<a class="headerlink" href="#visualizing-the-playing-techniques" title="Permalink to this heading">#</a></h2>
+<p>In the examples below, we visualize the <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(S_1\)</span> of one of each playing technique in the dataset.
+Importantly, we see that the modulation patterns in <span class="math notranslate nohighlight">\(U_1\)</span> are lost to the averaging operation in <span class="math notranslate nohighlight">\(S_1\)</span>.
+In the notebook in the following section, we will see how these high frequency modulations are recovered in <span class="math notranslate nohighlight">\(S_2\)</span>.</p>
 <section id="vibrato-tenor-trombone">
 <h3>Vibrato - Tenor Trombone<a class="headerlink" href="#vibrato-tenor-trombone" title="Permalink to this heading">#</a></h3>
 <!-- !audio[ title ]( /assets/audio/mir/tenor-tbn-vibrato.wav ){ size=10 duration=10 cycle=forever } -->
-<a class="reference internal image-reference" href="../_images/u1-tbn-vibrato.png"><img alt="U1 visualization of tenor trombone played with vibrato" class="align-center" src="../_images/u1-tbn-vibrato.png" style="width: 500px;" /></a>
-<a class="reference internal image-reference" href="../_images/s1-tbn-vibrato.png"><img alt="S1 visualization of tenor trombone played with vibrato" class="align-center" src="../_images/s1-tbn-vibrato.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/u1-bassoon-vibrato.png"><img alt="U1 visualization of Bassoon played with vibrato" class="align-center" src="../_images/u1-bassoon-vibrato.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/s1-bassoon-vibrato.png"><img alt="S1 visualization of Bassoon played with vibrato" class="align-center" src="../_images/s1-bassoon-vibrato.png" style="width: 500px;" /></a>
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/tenor-tbn-vibrato.wav" type="audio/wav">
+        <source src="/assets/audio/bassoon-vibrato.wav" type="audio/wav">
     </audio> 
 </div>
 </section>
@@ -477,7 +495,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/s1-viola-tremolo.png"><img alt="S1 visualization of Viola played with tremolo" class="align-center" src="../_images/s1-viola-tremolo.png" style="width: 500px;" /></a>
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/viola-tremolo.wav" type="audio/wav">
+        <source src="book/assets/audio/viola-tremolo.wav" type="audio/wav">
     </audio> 
 </div>
 </section>
@@ -487,7 +505,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/s1-viola-tremolo.png"><img alt="S1 visualization of Bass Tuba played with flatterzunge" class="align-center" src="../_images/s1-viola-tremolo.png" style="width: 500px;" /></a>
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/bass-tuba-flatterzunge.wav" type="audio/wav">
+        <source src="/assets/audio/bass-tuba-flatterzunge.wav" type="audio/wav">
     </audio> 
 </div>
 </section>
@@ -497,7 +515,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/s1-harp-bisbig.png"><img alt="S1 visualization of Harp played with Bisbigliando" class="align-center" src="../_images/s1-harp-bisbig.png" style="width: 500px;" /></a>
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/harp-bisbigliando.wav" type="audio/wav">
+        <source src="/assets/audio/harp-bisbigliando.wav" type="audio/wav">
     </audio> 
 </div>
 </section>
@@ -559,6 +577,13 @@ As for time-shift invariance, we can impose frequency transposition invariance w
 Periodic modulations are invariant to frequency transpositions. In accordance with common fate principles of auditory grouping, the harmonics produced by an instrument will follow congruent spectrotemporal modulation envelopes.</p>
 </section>
 </section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://hal.science/hal-04029145/">“Explainable Audio Classification of Playing Techniques with Layer-wise Relevance Propagation” by Changhong Wang et al</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/changhongw/examod/tree/main">changhongw/examod</a> Studio-on-Line dataset PMT split.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -601,11 +626,11 @@ Periodic modulations are invariant to frequency transpositions. In accordance wi
       </div>
     </a>
     <a class="right-next"
-       href="convnet.html"
+       href="eval.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Convnet Training</p>
+        <p class="prev-next-title">Evaluation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -638,6 +663,7 @@ Periodic modulations are invariant to frequency transpositions. In accordance wi
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timefrequencyscattering"><code class="docutils literal notranslate"><span class="pre">TimeFrequencyScattering</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
 
