@@ -38,6 +38,8 @@ Generative Evaluation of `Scattering1D`
 We also compute time scattering (Scattering1D) coefficients, setting $Q = 1$ and $J = 14$ with global temporal averaging.
 Time scattering does not capture spectrotemporal patterns beyond a log-frequency interval $1/Q_f$, where $Q_f$ is the quality factor (ratio of center frequency to bandwidth).
 Hence, by setting $Q = 1$, which results in $Q_f = 2.5$, we guarantee that the scalogram contains at least one amplitude modulation cycle, given a modulation frequency of at least 4 Hz and a chirp rate of at most 4 octaves per second.
+Although `Scattering1D` recovers the 3D manifold whose principal components independently align with the 3 synthesis parameter dimensions, this is at the expense of higher $Q$. 
+If we seek finer frequency localization, similarity between the spectrotemporal modulations will not be recovered due to the presence of nonstationary frequency.
 
 Generative Evaluation of `TimeFrequencyScattering`
 -----------------------------------------------------
@@ -46,6 +48,16 @@ Generative Evaluation of `TimeFrequencyScattering`
 :width: 700px
 :align: center
 ```
+We compute the time-frequency scattering coefficients of the dataset, setting the hyperparameters as follows:
+
+- Number of octaves of the temporal filterbank `J = 13`. This is set high to recover slower modulations.
+- `Q = (8, 1)` filters per octave in the first and second-order filterbanks, respectively.
+- Number of octaves of the frequency filterbank `J_fr = 5`.
+- `Q_fr = 2` filters per octave in the frequency filterbank.filters per octave in the frequency filterbank
+- `T = duration * sr` for global temporal averaging.
+- `F = 0` disabled frequency averaging so that the representation is equivariant to pitch transposition and therefore sensitive to variations in pitch.
+
+We can see that the JTFS transform of the dataset recover a 3D cartesian mesh whose principal components align perfectly with the 3 acoustic factors of variability in the dataset.
 
 Generative Evaluation of `OpenL3`
 -----------------------------------------------------
