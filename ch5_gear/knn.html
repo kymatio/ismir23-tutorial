@@ -424,27 +424,33 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/knn_ratios.png"><img alt="Error Ratios for nearest neighbor regression over the synth parameters for each acoustic representation." class="align-center" src="../_images/knn_ratios.png" style="width: 700px;" /></a>
 <p>As a quantitative supplement to the visualizations from the previous section, we assess regression of the synthesizer’s three parameters <span class="math notranslate nohighlight">\(\boldsymbol{\theta}=(f_{c}, f_{m}, \gamma)\)</span> with <span class="math notranslate nohighlight">\(K\)</span>-nearest neighbors regression algorithm (<span class="math notranslate nohighlight">\(K\)</span>-NN).
 <span class="math notranslate nohighlight">\(K\)</span>-NN parameter regression relies on Euclidean distances between examples in their feature representations. Therefore, its regression error sheds light on the degree of topological alignment between feature space and parameter space. Such an alignment is essential in common audio recognition tasks, as the parameters are physical correspondents of audio similarity.</p>
-<p>For each example, we start from an empty set of neighbors <span class="math notranslate nohighlight">\(\mathcal{N}_0 = \varnothing\)</span>. Then at each iteration, we select its closest neighbor by computing its pairwise Euclidean distance with all other examples. We stop after <span class="math notranslate nohighlight">\(K\)</span> iterations, resulting in a set of <span class="math notranslate nohighlight">\(K\)</span> nearest neighbors.
+<p>For each example, we start from an empty set of neighbors <span class="math notranslate nohighlight">\(\mathcal{N}_0 = \varnothing\)</span>. Then at each iteration, we select its closest neighbor by computing its pairwise Euclidean distance with all other examples. We stop after <span class="math notranslate nohighlight">\(K\)</span> iterations, resulting in a set of <span class="math notranslate nohighlight">\(K\)</span> nearest neighbors.</p>
+<div class="math notranslate nohighlight">
+\[
 \begin{equation}
-\mathcal{N}<em>{k+1}(\boldsymbol{\theta}</em>{i}) =
-\mathcal{N}<em>{k}(\boldsymbol{\theta}</em>{i})
-\cup
-\left{
-\argmin_{\boldsymbol{\theta}<em>{j} \not\in \mathcal{N}</em>{k}(\boldsymbol{\theta}<em>{i})}
-\left\Vert
-\mathbf{S}g(\boldsymbol{\theta}</em>{j})
--
-\mathbf{S}g(\boldsymbol{\theta}_{i})
-\right\Vert_2
-\right}
-\end{equation}</p>
-<p>We compute an estimate of the parameter <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\theta}}_i\)</span> as the average of its values at the <span class="math notranslate nohighlight">\(K\)</span> nearest neighbors. We define the error ratio as <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\theta}}_i/\boldsymbol{\theta}_i\)</span>, where:
+    \mathcal{N}_{k+1}(\boldsymbol{\theta}_{i}) =
+    \mathcal{N}_{k}(\boldsymbol{\theta}_{i})
+    \cup
+    \left\{
+    \text{argmin}_{\boldsymbol{\theta}_{j} \not\in \mathcal{N}_{k}(\boldsymbol{\theta}_{i})}
+    \left\Vert
+    \mathbf{S}g(\boldsymbol{\theta}_{j})
+    -
+    \mathbf{S}g(\boldsymbol{\theta}_{i})
+    \right\Vert_2
+    \right\}
+\end{equation}
+\]</div>
+<p>We compute an estimate of the parameter <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\theta}}_i\)</span> as the average of its values at the <span class="math notranslate nohighlight">\(K\)</span> nearest neighbors. We define the error ratio as <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\theta}}_i/\boldsymbol{\theta}_i\)</span>, where:</p>
+<div class="math notranslate nohighlight">
+\[
 \begin{equation}
-\boldsymbol{\widetilde{\theta}}<em>i =
-\dfrac{1}{K}
-\sum</em>{\theta_j\in\mathcal{N}_K(\theta_i)}
-\boldsymbol{\theta}_j.
-\end{equation}</p>
+    \boldsymbol{\widetilde{\theta}}_i =
+    \dfrac{1}{K}
+    \sum_{\theta_j\in\mathcal{N}_K(\theta_i)}
+    \boldsymbol{\theta}_j.
+\end{equation}
+\]</div>
 <p>We use the same <span class="math notranslate nohighlight">\(K=40\)</span> nearest neighbor graph computed by the Isomap algorithm in the previous section. We regress each example’s parameters for each of the audio representations and plot their error ratios.</p>
 <p>All feature representations are capable of regressing carrier frequency <span class="math notranslate nohighlight">\(f_c\)</span> with error ratios close to <span class="math notranslate nohighlight">\(1\)</span>. However, larger performance discrepancies can be observed in modulation frequency and chirp rate. Time scattering and JTFS excel at linearizing modulation frequency in the Euclidean space, with error ratios within range of <span class="math notranslate nohighlight">\(0.75\)</span> to <span class="math notranslate nohighlight">\(1.5\)</span>. Meanwhile, all scattering features extract chirp rate within error ratios between <span class="math notranslate nohighlight">\(0.75\)</span> to <span class="math notranslate nohighlight">\(1.25\)</span>, while MFCCs fail to account for similarity in modulations.<br />
 We see that in the case of OpenL3, a significant portion of the regression targets are estimated by a factor of two or more for modulation frequency and chirp rate.</p>
