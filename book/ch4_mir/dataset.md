@@ -1,6 +1,26 @@
 SOL Playing Techniques Dataset
 ==========================
-A subset of the _Studio-on-line_ dataset labelled according to a taxonomy periodic modulation playing techniques {cite}`wang2023explainable`
+A subset of the _Studio-on-line_ dataset labelled according to a taxonomy periodic modulation playing techniques introduced in Wang et al. (2023) [1].
+
+
+The data consists of 5 possible playing techniques, from 11 distinct musical instruments.
+
+```
+Techniques: ['vibrato', 'trill', 'tremolo', 'bisbigliando', 'flatterzunge']
+
+11 instruments: ['Flutes', 'Strings', 'Horns', 'Trumpets', 'Saxophones', 'PluckedStrings', 'Tubas', 'Oboes', 'Trombones', 'Clarinets', 'Bassoons']
+
+modulation technique  bisbigliando  flatterzunge  tremolo  trill  vibrato
+subset                                                                   
+test                            61           318      515    216       41
+training                       169           905     1513    616      112
+validation                      56           300      502    203       37
+
+subset
+test          1151
+training      3315
+validation    1098
+```
 
 Visualizing the playing techniques
 ----------------------------------
@@ -153,3 +173,9 @@ The frequential filterbank has its own set of parameters.
 We use `J_fr=3` octaves, with `Q_fr = 2` filters per octave.
 As for time-shift invariance, we can impose frequency transposition invariance with JTFS, by setting `F`, where transposition invariance is achieved over `Q / F` octaves.
 Periodic modulations are invariant to frequency transpositions. In accordance with common fate principles of auditory grouping, the harmonics produced by an instrument will follow congruent spectrotemporal modulation envelopes.
+
+References
+----------
+
+1. ["Explainable Audio Classification of Playing Techniques with Layer-wise Relevance Propagation" by Changhong Wang et al](https://hal.science/hal-04029145/)
+2. https://github.com/changhongw/examod/tree/main Studio-on-Line dataset PMT split.

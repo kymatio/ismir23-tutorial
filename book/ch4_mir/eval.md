@@ -1,6 +1,8 @@
 Evaluation
 ==========
 
+We train a convnet over 3 acoustic feature representations: the CQT, time scattering coefficients and joint time-frequency scattering, and evaluate the classification accuracy and confusions between playing techniques.
+
 ## CQT
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃        Test metric        ┃       DataLoader 0        ┃

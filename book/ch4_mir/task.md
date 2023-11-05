@@ -2,10 +2,10 @@ Musical Playing Technique Classification with Hybrid Scattering ConvNets
 ========================================================================
 
 In Music Information Retrieval (MIR), understanding and differentiating between various facets of musical sound holds significant importance. 
-One such facet, which adds depth to the auditory experience of timbre, is the expressive technique employed by the musician during the act of playing an instrument. 
+One such facet, which adds depth to the auditory experience of timbre, is the expressive technique employed by the musician during the act of playing an instrument [1]. 
 In this section, we explore the task of classifying distinct musical instrument playing techniques, focusing on 5 expressive techniques that span across 11 diverse instruments.
 
-Playing techniques can be broadly categorized as either (a) periodic (tremolo, vibrato, trill) or (b) pitch evolutionary (glissando, portamento, acciaccatura). 
+Playing techniques can be broadly categorized as either (a) periodic (tremolo, vibrato, trill) or (b) pitch evolutionary (glissando, portamento, acciaccatura) [2]. 
 In this exercise, we focus on periodic modulations.
 
 Contrary to the task of musical instrument classification, wherein the primary objective is to identify the source of the musical sound, playing technique classification poses its own challenges and intricacies. 
@@ -26,6 +26,4 @@ References
 ----------
 1. ["Extended playing techniques: the next milestone in musical instrument recognition" by Lostanlen et al.](https://www.lostanlen.com/wp-content/uploads/2019/11/lostanlen2018dlfm.pdf)
 
-2. https://github.com/changhongw/examod/tree/main Studio-on-Line dataset PMT split.
-
-3. ["Explainable Audio Classification of Playing Techniques with Layer-wise Relevance Propagation" by Changhong Wang et al](https://hal.science/hal-04029145/)
+2. Wang, Changhong, et al. "Playing technique recognition by joint time–frequency scattering." ICASSP 2020-2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). IEEE, 2020.
