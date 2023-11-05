@@ -25,23 +25,27 @@ validation    1098
 Visualizing the playing techniques
 ----------------------------------
 
+In the examples below, we visualize the $U_1$ and $S_1$ of one of each playing technique in the dataset. 
+Importantly, we see that the modulation patterns in $U_1$ are lost to the averaging operation in $S_1$.
+In the notebook in the following section, we will see how these high frequency modulations are recovered in $S_2$.
+
 ### Vibrato - Tenor Trombone
 <!-- !audio[ title ]( /assets/audio/mir/tenor-tbn-vibrato.wav ){ size=10 duration=10 cycle=forever } -->
 
-```{image} /assets/figures/mir/u1-tbn-vibrato.png
-:alt: U1 visualization of tenor trombone played with vibrato
+```{image} /assets/figures/mir/u1-bassoon-vibrato.png
+:alt: U1 visualization of Bassoon played with vibrato
 :width: 500px
 :align: center
 ```
 
-```{image} /assets/figures/mir/s1-tbn-vibrato.png
-:alt: S1 visualization of tenor trombone played with vibrato
+```{image} /assets/figures/mir/s1-bassoon-vibrato.png
+:alt: S1 visualization of Bassoon played with vibrato
 :width: 500px
 :align: center
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/tenor-tbn-vibrato.wav" type="audio/wav">
+        <source src="/assets/audio/bassoon-vibrato.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -77,7 +81,7 @@ Visualizing the playing techniques
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/viola-tremolo.wav" type="audio/wav">
+        <source src="book/assets/audio/viola-tremolo.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -95,7 +99,7 @@ Visualizing the playing techniques
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/bass-tuba-flatterzunge.wav" type="audio/wav">
+        <source src="/assets/audio/bass-tuba-flatterzunge.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -114,7 +118,7 @@ Visualizing the playing techniques
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/harp-bisbigliando.wav" type="audio/wav">
+        <source src="/assets/audio/harp-bisbigliando.wav" type="audio/wav">
     </audio> 
 </div>
 
