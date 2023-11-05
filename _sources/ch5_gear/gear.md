@@ -10,7 +10,8 @@ While HEAR provides a uniform basis for comparison across deep learning models a
 In this tutorial, we explore an evaluation approach within the Generative Evaluation of Audio Representations (GEAR) framework [2]. 
 Here, the emphasis is on the generation of datasets comprising sounds characterized by a select number of independent factors of acoustic variability.
 
-Using the Kymatio package, we explore the acoustic representation of amplitude and frequency modulated audio signals, with the motivation to understand and visualize the signal characteristics represented by scattering and time-frequency scattering transforms (as in [1]). 
+Using the Kymatio package, we explore the acoustic representation of amplitude and frequency modulated audio signals, with the motivation to understand and visualize the signal characteristics represented by scattering and time-frequency scattering transforms. 
+This experiment was outlined in [1].
 We use this framework as a basis for comparing scattering transforms to other time-frequency and deep feature acoustic representations that are commonly used to evaluate audio generation systems and sound similarity.
 
 Task

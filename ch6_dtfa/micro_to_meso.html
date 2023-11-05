@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Parameter Estimation by Gradient Descent" href="gradient_viz.html" />
-    <link rel="prev" title="Differentiable Chirplet Arpeggiator" href="chirplet_arp.html" />
+    <link rel="prev" title="Differentiable digital signal processing" href="ddsp.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,7 +197,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/task.html">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/dataset.html">SOL Playing Techniques Dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/convnet.html">Convnet Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/eval.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
@@ -214,8 +213,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ddsp.html">Differentiable digital signal processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">From the microscale to the mesoscale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gradient_viz.html">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
@@ -453,9 +450,6 @@ The black and grey bars illustrate the distance between the two chirps in JTFS s
 We can see that the JTFS loss is at a minimum when the two chirps are of equal chirp rate, while the distance increases as the chirp rate moves increasingly further from the target.
 This is not the case for the MSS distance: the distance is not correlated with the discrepancy in chirp rate.
 In fact, the distance begins to increase when the chirp rates are equal, illustrating the inefficacy of the MSS distance for measuring similarity in spectrotemporal modulations.</p>
-<ul class="simple">
-<li><p>plot distance against chirp rate</p></li>
-</ul>
 </section>
 <section id="invariance-to-time-shifts">
 <h2>Invariance to time-shifts<a class="headerlink" href="#invariance-to-time-shifts" title="Permalink to this heading">#</a></h2>
@@ -495,12 +489,12 @@ In fact, the distance begins to increase when the chirp rates are equal, illustr
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="chirplet_arp.html"
+       href="ddsp.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Differentiable Chirplet Arpeggiator</p>
+        <p class="prev-next-title">Differentiable digital signal processing</p>
       </div>
     </a>
     <a class="right-next"

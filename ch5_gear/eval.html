@@ -173,6 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_structure.html">Tutorial Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_scope.html">Tutorial Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1_intro/why_wavelets.html">Why use wavelets in music information retrieval?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics of wavelets</span></p>
 <ul class="nav bd-sidenav">
@@ -195,8 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Scattering in MIR</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/task.html">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/dataset.html">Playing Techniques Dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/convnet.html">Convnet Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/dataset.html">SOL Playing Techniques Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/eval.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
@@ -212,9 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differentiable Time-Frequency Analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/mss_loss.html">Multiscale Spectral Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/ddsp.html">Differentiable digital signal processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/micro_to_meso.html">From the microscale to the mesoscale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/gradient_viz.html">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
@@ -459,20 +457,30 @@ Only the fundamental frequency <span class="math notranslate nohighlight">\(f_c\
 <a class="reference internal image-reference" href="../_images/isomap_scat1d.png"><img alt="Manifold embedding of scattering." class="align-center" src="../_images/isomap_scat1d.png" style="width: 700px;" /></a>
 <p>We also compute time scattering (Scattering1D) coefficients, setting <span class="math notranslate nohighlight">\(Q = 1\)</span> and <span class="math notranslate nohighlight">\(J = 14\)</span> with global temporal averaging.
 Time scattering does not capture spectrotemporal patterns beyond a log-frequency interval <span class="math notranslate nohighlight">\(1/Q_f\)</span>, where <span class="math notranslate nohighlight">\(Q_f\)</span> is the quality factor (ratio of center frequency to bandwidth).
-Hence, by setting <span class="math notranslate nohighlight">\(Q = 1\)</span>, which results in <span class="math notranslate nohighlight">\(Q_f = 2.5\)</span>, we guarantee that the scalogram contains at least one amplitude modulation cycle, given a modulation frequency of at least 4 Hz and a chirp rate of at most 4 octaves per second.</p>
+Hence, by setting <span class="math notranslate nohighlight">\(Q = 1\)</span>, which results in <span class="math notranslate nohighlight">\(Q_f = 2.5\)</span>, we guarantee that the scalogram contains at least one amplitude modulation cycle, given a modulation frequency of at least 4 Hz and a chirp rate of at most 4 octaves per second.
+Although <code class="docutils literal notranslate"><span class="pre">Scattering1D</span></code> recovers the 3D manifold whose principal components independently align with the 3 synthesis parameter dimensions, this is at the expense of higher <span class="math notranslate nohighlight">\(Q\)</span>.
+If we seek finer frequency localization, similarity between the spectrotemporal modulations will not be recovered due to the presence of nonstationary frequency.</p>
 </section>
 <section id="generative-evaluation-of-timefrequencyscattering">
 <h2>Generative Evaluation of <code class="docutils literal notranslate"><span class="pre">TimeFrequencyScattering</span></code><a class="headerlink" href="#generative-evaluation-of-timefrequencyscattering" title="Permalink to this heading">#</a></h2>
 <a class="reference internal image-reference" href="../_images/isomap_jtfs.png"><img alt="Manifold embedding of JTFS." class="align-center" src="../_images/isomap_jtfs.png" style="width: 700px;" /></a>
+<p>We compute the time-frequency scattering coefficients of the dataset, setting the hyperparameters as follows:</p>
+<ul class="simple">
+<li><p>Number of octaves of the temporal filterbank <code class="docutils literal notranslate"><span class="pre">J</span> <span class="pre">=</span> <span class="pre">13</span></code>. This is set high to recover slower modulations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">=</span> <span class="pre">(8,</span> <span class="pre">1)</span></code> filters per octave in the first and second-order filterbanks, respectively.</p></li>
+<li><p>Number of octaves of the frequency filterbank <code class="docutils literal notranslate"><span class="pre">J_fr</span> <span class="pre">=</span> <span class="pre">5</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Q_fr</span> <span class="pre">=</span> <span class="pre">2</span></code> filters per octave in the frequency filterbank.filters per octave in the frequency filterbank</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">=</span> <span class="pre">duration</span> <span class="pre">*</span> <span class="pre">sr</span></code> for global temporal averaging.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">=</span> <span class="pre">0</span></code> disabled frequency averaging so that the representation is equivariant to pitch transposition and therefore sensitive to variations in pitch.</p></li>
+</ul>
+<p>In the case of both transformations and the application of Isomap manifold learning, the dataset of AM/FM signals is represented as a 3-D mesh where the principal components align independently with <span class="math notranslate nohighlight">\(f_c\)</span>, <span class="math notranslate nohighlight">\(f_m\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+<p>Both transformations with their respective hyperparameters are capable of disentangling and linearizing fundamental frequency, tremolo rate and chirp rate, which describe spectrotemporal modulation patterns.</p>
 </section>
 <section id="generative-evaluation-of-openl3">
 <h2>Generative Evaluation of <code class="docutils literal notranslate"><span class="pre">OpenL3</span></code><a class="headerlink" href="#generative-evaluation-of-openl3" title="Permalink to this heading">#</a></h2>
 <a class="reference internal image-reference" href="../_images/isomap_openl3.png"><img alt="Manifold embedding of OpenL3 embeddings." class="align-center" src="../_images/isomap_openl3.png" style="width: 700px;" /></a>
-<p>Fig. \ref{fig:isomaps}(b) and (c) show three-dimensional (3-D) visualizations of the Isomap embeddings for time scattering (<span class="math notranslate nohighlight">\(Q=1\)</span>) and time–frequency scattering (<span class="math notranslate nohighlight">\(Q=8\)</span>), respectively.</p>
-<p>In the case of both transformations and the application of Isomap manifold learning, the dataset of AM/FM signals is represented as a 3-D mesh where the principal components align independently with <span class="math notranslate nohighlight">\(f_c\)</span>, <span class="math notranslate nohighlight">\(f_m\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span>. Both transformations with their respective hyperparameters are capable of disentangling and linearizing fundamental frequency, tremolo rate and chirp rate, which describe spectrotemporal modulation patterns.</p>
 <p>Fig. \ref{fig:isomaps}(c) visualizes the embedding for time scattering when <span class="math notranslate nohighlight">\(Q = 8\)</span>.</p>
-<p>In this case, we observe that time scattering lies on a 2-D manifold that adequately describes <span class="math notranslate nohighlight">\(f_c\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span>, yet fails to account for similarity in <span class="math notranslate nohighlight">\(f_m\)</span> due to the aforementioned reasons.</p>
-<p>Despite time scattering successfully disentangling the 3 factors of variability when <span class="math notranslate nohighlight">\(Q = 1\)</span>, other applications may demand a a greater quality factor in order to better localize in frequency.</p>
+<p>In this case, we observe that the dataset lies on a 2-D manifold that fail to describe similarity between the synthesis parameters.</p>
 </section>
 </section>
 

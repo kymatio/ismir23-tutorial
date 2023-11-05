@@ -29,7 +29,7 @@ In the examples below, we visualize the $U_1$ and $S_1$ of one of each playing t
 Importantly, we see that the modulation patterns in $U_1$ are lost to the averaging operation in $S_1$.
 In the notebook in the following section, we will see how these high frequency modulations are recovered in $S_2$.
 
-### Vibrato - Tenor Trombone
+### Vibrato - Bassoon
 <!-- !audio[ title ]( /assets/audio/mir/tenor-tbn-vibrato.wav ){ size=10 duration=10 cycle=forever } -->
 
 ```{image} /assets/figures/mir/u1-bassoon-vibrato.png
@@ -63,7 +63,7 @@ In the notebook in the following section, we will see how these high frequency m
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/mir/clarinet-bb-trill.wav" type="audio/wav">
+        <source src="https://raw.githubusercontent.com/kymatio/ismir23-tutorial/main/book/assets/audio/clarinet-bb-trill.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -81,7 +81,7 @@ In the notebook in the following section, we will see how these high frequency m
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="book/assets/audio/viola-tremolo.wav" type="audio/wav">
+        <source src="https://raw.githubusercontent.com/kymatio/ismir23-tutorial/main/book/assets/audio/viola-tremolo.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -99,7 +99,7 @@ In the notebook in the following section, we will see how these high frequency m
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/bass-tuba-flatterzunge.wav" type="audio/wav">
+        <source src="https://raw.githubusercontent.com/kymatio/ismir23-tutorial/main/book/assets/audio/bass-tuba-flatterzunge.wav" type="audio/wav">
     </audio> 
 </div>
 
@@ -118,7 +118,7 @@ In the notebook in the following section, we will see how these high frequency m
 ```
 <div style="display: grid">
     <audio controls style="justify-self: center">
-        <source src="/assets/audio/harp-bisbigliando.wav" type="audio/wav">
+        <source src="https://raw.githubusercontent.com/kymatio/ismir23-tutorial/main/book/assets/audio/harp-bisbigliando.wav" type="audio/wav">
     </audio> 
 </div>
 

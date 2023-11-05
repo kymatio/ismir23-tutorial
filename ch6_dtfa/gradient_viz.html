@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch6_dtfa/gradient_viz';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -195,7 +197,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/task.html">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/dataset.html">SOL Playing Techniques Dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/convnet.html">Convnet Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/eval.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
@@ -212,8 +213,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ddsp.html">Differentiable digital signal processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="micro_to_meso.html">From the microscale to the mesoscale</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
@@ -395,7 +394,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -411,6 +412,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extensions">Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -423,14 +433,36 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="parameter-estimation-by-gradient-descent">
 <h1>Parameter Estimation by Gradient Descent<a class="headerlink" href="#parameter-estimation-by-gradient-descent" title="Permalink to this heading">#</a></h1>
 <a class="reference internal image-reference" href="../_images/timeshift_chirps.png"><img alt="Chirplet Arpeggios of event rate 4 Hz and chirp rate of 0.5 and 2 octaves / second" class="align-center" src="../_images/timeshift_chirps.png" style="width: 700px;" /></a>
+<p>We reuse the differentiable AM/FM chirp synthesizer from the GEAR chapter.
+This synth can be interpreted as a sequence of chirp events, governed by a density parameter that determines the number of events and the chirp rate
+which governs the overall duration of the auditory object.
+Therefore, we seek a listening device that is able to tune the parameters of a synthesizer to quanity the number of chirplet events and the overall duration of the sound that is dictated by the rate of frequency modulation.</p>
+<p>The plots below illustrate the loss surface and gradient fields of the <em>multiscale spectrogram loss</em> and <em>time-frequency scattering loss</em> with respect to a fixed target sound.
+We vary the synthesizer’s parameters on a 2D grid, and compute the loss with the target sound and derive the resulting gradients with respect to the two input synthesis parameters.
+These plots show us whether the auditory similarity objectives are suitable for modelling these synthesis parameters in an inverse problem of sound matching by gradient descent, which is common in DDSP-style learning frameworks.</p>
+<p>First, we assess the commonly used multiscale spectral loss.
+We clearly see that the loss surface lies on a 2D plane, and is insensitive to variations in the density of events (AM).
+Furthermore, we observe that the global minima is <em>not</em> localized around the target sound.</p>
 <a class="reference internal image-reference" href="../_images/grad_field_mss_ts.png"><img alt="" class="align-center" src="../_images/grad_field_mss_ts.png" style="width: 700px;" /></a>
+<p>We add a time-shift to the target sound to demonstrate the effectiveness of time-frequency scattering to represent similarity between time-frequency structures at time-scales beyond the <em>microscale</em>.
+We can see a 3D curved loss surface. The visualization of the gradients computed in JTFS space with respect to <span class="math notranslate nohighlight">\(\theta\)</span> suggests that it is an informative objective proxy measure of similarity between the phyiscal parameters to serve as a basis for optimization.</p>
 <a class="reference internal image-reference" href="../_images/grad_field_jtfs.png"><img alt="" class="align-center" src="../_images/grad_field_jtfs.png" style="width: 700px;" /></a>
-<ul class="simple">
-<li><p>Visualize gradient fields</p></li>
-<li><p>show the routine</p></li>
-<li><p>motivate</p></li>
-<li><p>explain how we can do gradient descent</p></li>
-</ul>
+<section id="extensions">
+<h2>Extensions<a class="headerlink" href="#extensions" title="Permalink to this heading">#</a></h2>
+<p>Existing work has shown that we can appropriate the JTFS loss for sound matching by stochastic gradient descent directly in the space of the synthesiser’s parameters [1]
+This framework may not generalize to every possible synthesizer, but offers potential in DDSP problems.
+Time-frequency scattering is not without limitations: currently, the only differentiable implementation is Kymatio is prohibitively slow. Whereas the multiscale spectrogram loss is very computationally efficient.
+In the case of differentiable time-frequency analysis, this would incur a recomputation of the scattering paths of every estimated sound at every step of gradient descent.
+Han Han et al. [2] sought to sidestep the need of repeatedly computing the scattering transform during stochastic gradient descent for sound matching, by computing the Jacobian of the entire training dataset with respect to a physical modellinmg synthesizer’s parameters.
+Previous work has shown that time-frequency scattering reflects human auditory judgments of similarity, making it a candidate for an objective distance measure in differentiable time-frequency analysis.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/2301.10183">“Mesostructures: Beyond Spectrogram Loss in Differentiable Time-Frequency Analysis” by Cyrus Vahidi, Han Han, Changhong Wang, Mathieu Lagrange, György Fazekas, and Vincent Lostanlen</a></p></li>
+<li><p><a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/10095391?casa_token=JuFgq9fnfj4AAAAA:UQmnUSpYJDrQ9t-UsS-PPFoAbJafUBCwm0Xb0YLn8rNdVw1BH1wySxPBXrmG2aiKX1mG6hhKLA">“Perceptual Neural Physical Sound Matching” Han Han et al.</a></p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -487,6 +519,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extensions">Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

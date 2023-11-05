@@ -38,6 +38,8 @@ Generative Evaluation of `Scattering1D`
 We also compute time scattering (Scattering1D) coefficients, setting $Q = 1$ and $J = 14$ with global temporal averaging.
 Time scattering does not capture spectrotemporal patterns beyond a log-frequency interval $1/Q_f$, where $Q_f$ is the quality factor (ratio of center frequency to bandwidth).
 Hence, by setting $Q = 1$, which results in $Q_f = 2.5$, we guarantee that the scalogram contains at least one amplitude modulation cycle, given a modulation frequency of at least 4 Hz and a chirp rate of at most 4 octaves per second.
+Although `Scattering1D` recovers the 3D manifold whose principal components independently align with the 3 synthesis parameter dimensions, this is at the expense of higher $Q$. 
+If we seek finer frequency localization, similarity between the spectrotemporal modulations will not be recovered due to the presence of nonstationary frequency.
 
 Generative Evaluation of `TimeFrequencyScattering`
 -----------------------------------------------------
@@ -46,6 +48,18 @@ Generative Evaluation of `TimeFrequencyScattering`
 :width: 700px
 :align: center
 ```
+We compute the time-frequency scattering coefficients of the dataset, setting the hyperparameters as follows:
+
+- Number of octaves of the temporal filterbank `J = 13`. This is set high to recover slower modulations.
+- `Q = (8, 1)` filters per octave in the first and second-order filterbanks, respectively.
+- Number of octaves of the frequency filterbank `J_fr = 5`.
+- `Q_fr = 2` filters per octave in the frequency filterbank.filters per octave in the frequency filterbank
+- `T = duration * sr` for global temporal averaging.
+- `F = 0` disabled frequency averaging so that the representation is equivariant to pitch transposition and therefore sensitive to variations in pitch.
+
+In the case of both transformations and the application of Isomap manifold learning, the dataset of AM/FM signals is represented as a 3-D mesh where the principal components align independently with $f_c$, $f_m$ and $\gamma$. 
+
+Both transformations with their respective hyperparameters are capable of disentangling and linearizing fundamental frequency, tremolo rate and chirp rate, which describe spectrotemporal modulation patterns. 
 
 Generative Evaluation of `OpenL3`
 -----------------------------------------------------
@@ -55,12 +69,6 @@ Generative Evaluation of `OpenL3`
 :align: center
 ```
 
-Fig. \ref{fig:isomaps}(b) and (c) show three-dimensional (3-D) visualizations of the Isomap embeddings for time scattering ($Q=1$) and time--frequency scattering ($Q=8$), respectively. 
-
-In the case of both transformations and the application of Isomap manifold learning, the dataset of AM/FM signals is represented as a 3-D mesh where the principal components align independently with $f_c$, $f_m$ and $\gamma$. Both transformations with their respective hyperparameters are capable of disentangling and linearizing fundamental frequency, tremolo rate and chirp rate, which describe spectrotemporal modulation patterns. 
-
 Fig. \ref{fig:isomaps}(c) visualizes the embedding for time scattering when $Q = 8$. 
 
-In this case, we observe that time scattering lies on a 2-D manifold that adequately describes $f_c$ and $\gamma$, yet fails to account for similarity in $f_m$ due to the aforementioned reasons. 
-
-Despite time scattering successfully disentangling the 3 factors of variability when $Q = 1$, other applications may demand a a greater quality factor in order to better localize in frequency.
+In this case, we observe that the dataset lies on a 2-D manifold that fail to describe similarity between the synthesis parameters.

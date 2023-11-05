@@ -171,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_structure.html">Tutorial Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_scope.html">Tutorial Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1_intro/why_wavelets.html">Why use wavelets in music information retrieval?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics of wavelets</span></p>
 <ul class="nav bd-sidenav">
@@ -193,8 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Scattering in MIR</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/task.html">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/dataset.html">Playing Techniques Dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/convnet.html">Convnet Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/dataset.html">SOL Playing Techniques Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/eval.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
@@ -210,9 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differentiable Time-Frequency Analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/mss_loss.html">Multiscale Spectral Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/ddsp.html">Differentiable digital signal processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/micro_to_meso.html">From the microscale to the mesoscale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/gradient_viz.html">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
@@ -439,7 +437,8 @@ document.write(`
 While HEAR provides a uniform basis for comparison across deep learning models and datasets, direct interpretation in terms of audio signal processing remains elusive.</p>
 <p>In this tutorial, we explore an evaluation approach within the Generative Evaluation of Audio Representations (GEAR) framework [2].
 Here, the emphasis is on the generation of datasets comprising sounds characterized by a select number of independent factors of acoustic variability.</p>
-<p>Using the Kymatio package, we explore the acoustic representation of amplitude and frequency modulated audio signals, with the motivation to understand and visualize the signal characteristics represented by scattering and time-frequency scattering transforms (as in [1]).
+<p>Using the Kymatio package, we explore the acoustic representation of amplitude and frequency modulated audio signals, with the motivation to understand and visualize the signal characteristics represented by scattering and time-frequency scattering transforms.
+This experiment was outlined in [1].
 We use this framework as a basis for comparing scattering transforms to other time-frequency and deep feature acoustic representations that are commonly used to evaluate audio generation systems and sound similarity.</p>
 </section>
 <section id="task">
