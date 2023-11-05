@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch4_mir/dataset';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -426,6 +428,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bisbigliando-harp">Bisbigliando - Harp</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction">Feature extraction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cqt"><code class="docutils literal notranslate"><span class="pre">CQT</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scattering1d"><code class="docutils literal notranslate"><span class="pre">Scattering1D</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timefrequencyscattering"><code class="docutils literal notranslate"><span class="pre">TimeFrequencyScattering</span></code></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -439,6 +447,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sol-playing-techniques-dataset">
 <h1>SOL Playing Techniques Dataset<a class="headerlink" href="#sol-playing-techniques-dataset" title="Permalink to this heading">#</a></h1>
+<p>A subset of the <em>Studio-on-line</em> dataset labelled according to a taxonomy periodic modulation playing techniques <span id="id1">[]</span></p>
 <section id="visualizing-the-playing-techniques">
 <h2>Visualizing the playing techniques<a class="headerlink" href="#visualizing-the-playing-techniques" title="Permalink to this heading">#</a></h2>
 <section id="vibrato-tenor-trombone">
@@ -491,6 +500,63 @@ document.write(`
         <source src="/assets/audio/mir/harp-bisbigliando.wav" type="audio/wav">
     </audio> 
 </div>
+</section>
+</section>
+<section id="feature-extraction">
+<h2>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this heading">#</a></h2>
+<p>We pre-extract the features offline: CQT with <code class="docutils literal notranslate"><span class="pre">nnAudio</span></code> and time scatttering / JTFS with <code class="docutils literal notranslate"><span class="pre">kymatio</span></code>.
+A numpy array per audio example can be found in <code class="docutils literal notranslate"><span class="pre">SOL_0.9_HQ-PMT/{feature}</span></code>.
+We slice the first <span class="math notranslate nohighlight">\(2^{16}\)</span> samples (1.5 seconds) of each audio example.
+We refer the reader to the following <a class="reference external" href="https://github.com/cyrusvahidi/ismir23-kymatio-tools/blob/main/s1dt/data.py">Github repository</a> for the feature extraction codebase.</p>
+<section id="cqt">
+<h3><code class="docutils literal notranslate"><span class="pre">CQT</span></code><a class="headerlink" href="#cqt" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="s2">&quot;cqt&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;n_bins&quot;</span><span class="p">:</span> <span class="mi">144</span><span class="p">,</span>
+        <span class="s2">&quot;bins_per_octave&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="s2">&quot;hop_length&quot;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+        <span class="s2">&quot;global_avg&quot;</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>The resulting CQT has <code class="docutils literal notranslate"><span class="pre">144</span></code> frequency bins and <code class="docutils literal notranslate"><span class="pre">129</span></code> temporal frames. There’s no lowpass filter applied across the CQT’s temporal dimension.</p>
+</section>
+<section id="scattering1d">
+<h3><code class="docutils literal notranslate"><span class="pre">Scattering1D</span></code><a class="headerlink" href="#scattering1d" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="s2">&quot;scat1d&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">16</span><span class="p">,</span> <span class="p">),</span>
+        <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="s2">&quot;J&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="s2">&quot;global_avg&quot;</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="p">},</span>
+</pre></div>
+</div>
+<p>Time scattering and JTFS give us <code class="docutils literal notranslate"><span class="pre">16</span></code> temporal frames since our hop size is <code class="docutils literal notranslate"><span class="pre">2**J</span></code> <code class="docutils literal notranslate"><span class="pre">(2**16</span> <span class="pre">/</span> <span class="pre">2**12)</span></code>. The larger we set <code class="docutils literal notranslate"><span class="pre">T</span></code> (default <code class="docutils literal notranslate"><span class="pre">2**J</span></code>), the more we impose invariance to time-shifts in both spectral shape and spectrotemporal modulations.
+Time-shift invariance is a useful property, particularly for periodic modulations.</p>
+<p>We construct the <code class="docutils literal notranslate"><span class="pre">Scattering1D</span></code> filterbanks with a maximum scale of <code class="docutils literal notranslate"><span class="pre">J=12</span></code> (<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">octaves</span></code>).
+We use 12 and 2 filters per octave in the first and second-order filterbanks respectively.
+we average over a temporal support of <code class="docutils literal notranslate"><span class="pre">2**J</span></code>.</p>
+</section>
+<section id="timefrequencyscattering">
+<h3><code class="docutils literal notranslate"><span class="pre">TimeFrequencyScattering</span></code><a class="headerlink" href="#timefrequencyscattering" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="s2">&quot;jtfs&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;shape&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">16</span><span class="p">,</span> <span class="p">),</span>
+        <span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="s2">&quot;J&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="s2">&quot;J_fr&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;Q_fr&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="o">**</span><span class="mi">13</span><span class="p">,</span>
+        <span class="s2">&quot;global_avg&quot;</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>We construct the <code class="docutils literal notranslate"><span class="pre">TimeFrequencyScattering</span></code> temporal filterbanks with a maximum scale of <code class="docutils literal notranslate"><span class="pre">J=12</span></code> (<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">octaves</span></code>).
+We use 12 and 2 filters per octave in the first and second-order temporal filterbanks respectively.
+We average over a temporal support of <code class="docutils literal notranslate"><span class="pre">2**J</span></code> and frequential support of <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">/</span> <span class="pre">F</span> <span class="pre">=</span> <span class="pre">1</span></code> octave..
+The frequential filterbank has its own set of parameters.
+We use <code class="docutils literal notranslate"><span class="pre">J_fr=3</span></code> octaves, with <code class="docutils literal notranslate"><span class="pre">Q_fr</span> <span class="pre">=</span> <span class="pre">2</span></code> filters per octave.
+As for time-shift invariance, we can impose frequency transposition invariance with JTFS, by setting <code class="docutils literal notranslate"><span class="pre">F</span></code>, where transposition invariance is achieved over <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">/</span> <span class="pre">F</span></code> octaves.
+Periodic modulations are invariant to frequency transpositions. In accordance with common fate principles of auditory grouping, the harmonics produced by an instrument will follow congruent spectrotemporal modulation envelopes.</p>
 </section>
 </section>
 </section>
@@ -564,6 +630,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tremolo-viola">Tremolo - Viola</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flatterzunge-bass-tuba">Flatterzunge - Bass Tuba</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bisbigliando-harp">Bisbigliando - Harp</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction">Feature extraction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cqt"><code class="docutils literal notranslate"><span class="pre">CQT</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scattering1d"><code class="docutils literal notranslate"><span class="pre">Scattering1D</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timefrequencyscattering"><code class="docutils literal notranslate"><span class="pre">TimeFrequencyScattering</span></code></a></li>
 </ul>
 </li>
 </ul>
