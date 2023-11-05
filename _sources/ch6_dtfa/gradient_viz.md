@@ -7,15 +7,16 @@ Parameter Estimation by Gradient Descent
 :align: center
 ```
 We reuse the differentiable AM/FM chirp synthesizer from the GEAR chapter. 
+The visualization above illustrates the CQT of two chirps of event rate 4 Hz and chirp rate of 0.5 and 2 octaves / second respectively.
+
 This synth can be interpreted as a sequence of chirp events, governed by a density parameter that determines the number of events and the chirp rate
 which governs the overall duration of the auditory object.
+We can see that the higher FM rate results in an overall shorter perceived duration of the sound object.
 Therefore, we seek a listening device that is able to tune the parameters of a synthesizer to quanity the number of chirplet events and the overall duration of the sound that is dictated by the rate of frequency modulation.
-
 
 The plots below illustrate the loss surface and gradient fields of the _multiscale spectrogram loss_ and _time-frequency scattering loss_ with respect to a fixed target sound.
 We vary the synthesizer's parameters on a 2D grid, and compute the loss with the target sound and derive the resulting gradients with respect to the two input synthesis parameters.
 These plots show us whether the auditory similarity objectives are suitable for modelling these synthesis parameters in an inverse problem of sound matching by gradient descent, which is common in DDSP-style learning frameworks.
-
 
 First, we assess the commonly used multiscale spectral loss. 
 We clearly see that the loss surface lies on a 2D plane, and is insensitive to variations in the density of events (AM). 
