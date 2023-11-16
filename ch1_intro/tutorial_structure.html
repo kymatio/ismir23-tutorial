@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Tutorial Structure &#8212; Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -173,9 +173,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="tutorial_scope.html">Tutorial Scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="why_wavelets.html">Why use wavelets in music information retrieval?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics of wavelets</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Wavelets</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/intro.html">Introduction to Wavelets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/intro.html">What is a wavelet?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/morlet1d.html">1D Morlet Wavelets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/filterbanks.html">Wavelet Filterbanks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/morlet2d.html">2D Morlet Wavelets</a></li>
@@ -220,8 +220,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/references.html">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/acknowledgements.html">Acknowledgements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/authors.html">Authors</a></li>
-
-
 </ul>
 
     </div>
@@ -449,7 +447,7 @@ To access this dataset, please see this tutorial’s dedicated channel on the IS
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <p>We rely on the accessible GPU acceleration that’s provided in the Colab environment. All installation is handled within the Colab notebooks.
-We make use of a supplementary package <code class="docutils literal notranslate"><span class="pre">s1dt</span></code> for utility functions, feature extraction and algorithms: <a class="reference external" href="https://github.com/cyrusvahidi/ismir23-kymatio-tools">ismir23-kymatio-tools</a>.
+We make use of a supplementary package <code class="docutils literal notranslate"><span class="pre">s1dt</span></code> for utility functions, feature extraction, and visualizations: <a class="reference external" href="https://github.com/cyrusvahidi/ismir23-kymatio-tools">ismir23-kymatio-tools</a>.
 The main dependencies in each Colab notebook are <code class="docutils literal notranslate"><span class="pre">kymatio-0.4-dev</span></code> and <code class="docutils literal notranslate"><span class="pre">s1dt</span></code>, which can be installed from source:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/kymatio/kymatio.git<span class="w"> </span><span class="c1"># install kymatio v0.4-dev from source</span>
 !pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/cyrusvahidi/ismir23-kymatio-tools.git<span class="w"> </span><span class="c1"># install helper library for this tutorial</span>
@@ -458,13 +456,14 @@ The main dependencies in each Colab notebook are <code class="docutils literal n
 </section>
 <section id="community">
 <h2>Community<a class="headerlink" href="#community" title="Permalink to this heading">#</a></h2>
-<p>Get in touch via the <a class="reference external" href="https://kymat.io">Kymatio</a> community on <a class="reference external" href="https://github.com/kymatio/kymatio">Github</a> or <a class="reference external" href="https://twitter.com/KymatioWavelets/">X</a>.</p>
-<p>Contact the <a class="reference internal" href="../ch7_resources/authors.html"><span class="doc">Authors</span></a>.</p>
+<hr class="docutils" />
+<p>Get in touch via the <a class="reference external" href="https://kymat.io">Kymatio</a> community on <a class="reference external" href="https://github.com/kymatio/kymatio">Github</a> or <a class="reference external" href="https://twitter.com/KymatioWavelets/">X</a>.
+You can also contact the <a class="reference internal" href="../ch7_resources/authors.html"><span class="doc">Authors</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The contents of this book will be continually updated after the tutorial at ISMIR on November 5th 2023.
+<p>The contents of this book will be continually updated after the ISMIR tutorial on November 5th 2023.
 Time-frequency scattering is currently only available in <code class="docutils literal notranslate"><span class="pre">beta</span></code> via the <code class="docutils literal notranslate"><span class="pre">kymatio.torch</span></code> frontend.
-It can be installed from source and will be officially released in <code class="docutils literal notranslate"><span class="pre">v0.4</span></code>.
+It can be installed from source and will be officially released in Kymatio <code class="docutils literal notranslate"><span class="pre">v0.4</span></code>.
 Stay up-to-date on <a class="reference external" href="https://twitter.com/KymatioWavelets/">X</a>.</p>
 </div>
 </section>
@@ -583,8 +582,8 @@ By Cyrus Vahidi, Christopher Mitcheltree, Vincent Lostanlen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

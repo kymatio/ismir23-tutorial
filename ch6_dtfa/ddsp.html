@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Differentiable digital signal processing &#8212; Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch6_dtfa/ddsp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Time-Frequency Scattering Distance" href="jtfs_loss.html" />
+    <link rel="next" title="From the microscale to the mesoscale" href="micro_to_meso.html" />
     <link rel="prev" title="DTFA: Differentiable Time-Frequency Analysis" href="dtfa.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,9 +175,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_scope.html">Tutorial Scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/why_wavelets.html">Why use wavelets in music information retrieval?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics of wavelets</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Wavelets</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/intro.html">Introduction to Wavelets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/intro.html">What is a wavelet?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/morlet1d.html">1D Morlet Wavelets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/filterbanks.html">Wavelet Filterbanks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/morlet2d.html">2D Morlet Wavelets</a></li>
@@ -197,7 +197,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/task.html">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/dataset.html">SOL Playing Techniques Dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/convnet.html">Convnet Training</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/eval.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
@@ -214,8 +213,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Differentiable digital signal processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jtfs_loss.html">Time-Frequency Scattering Distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chirplet_arp.html">Differentiable Chirplet Arpeggiator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="micro_to_meso.html">From the microscale to the mesoscale</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gradient_viz.html">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
@@ -225,8 +222,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/references.html">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/acknowledgements.html">Acknowledgements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/authors.html">Authors</a></li>
-
-
 </ul>
 
     </div>
@@ -514,11 +509,11 @@ However, the reciprocal is not true: in some cases, the reconstructed signal <sp
       </div>
     </a>
     <a class="right-next"
-       href="jtfs_loss.html"
+       href="micro_to_meso.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Time-Frequency Scattering Distance</p>
+        <p class="prev-next-title">From the microscale to the mesoscale</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -587,8 +582,8 @@ By Cyrus Vahidi, Christopher Mitcheltree, Vincent Lostanlen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

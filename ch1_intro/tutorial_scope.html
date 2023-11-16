@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Tutorial Scope &#8212; Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch1_intro/tutorial_scope';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Definitions" href="../ch2_wavelets/definition.html" />
+    <link rel="next" title="Why use wavelets in music information retrieval?" href="why_wavelets.html" />
     <link rel="prev" title="Tutorial Structure" href="tutorial_structure.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -171,36 +171,48 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tutorial_structure.html">Tutorial Structure</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tutorial Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why_wavelets.html">Why use wavelets in music information retrieval?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics of wavelets</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Wavelets</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/definition.html">Definitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/perspectives.html">Perspectives on Wavelets and Scattering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/intro.html">What is a wavelet?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/morlet1d.html">1D Morlet Wavelets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/filterbanks.html">Wavelet Filterbanks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/morlet2d.html">2D Morlet Wavelets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2_wavelets/1_wavelets.html">Notebook 1 - Introduction to Wavelets</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Scattering</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch3_scattering/wavelet_transform.html">Intro to Wavelet Transforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3_scattering/wavelet_fbank.html">Wavelet Filterbanks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3_scattering/order1.html">First-order Scattering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch3_scattering/scalogram.html">Wavelet Scalogram</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch3_scattering/scat1d.html">Scattering in Time</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch3_scattering/design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3_scattering/order2.html">Second-order Scattering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch3_scattering/jtfs.html">Time-Frequency Scattering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch3_scattering/2_scattering.html">Notebook 2 - Scattering Transforms with Kymatio</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Scattering in MIR</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/ipt_classification.html">Musical Playing Technique Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/task.html">Musical Playing Technique Classification with Hybrid Scattering ConvNets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/dataset.html">SOL Playing Techniques Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/eval.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4_mir/extensions.html">Extensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch4_mir/3_ipt_classification.html">Notebook 3 - Musical Playing Technique Classification</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">GEAR: Generative Evaluation of Audio Representations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch5_gear/gear.html">GEAR: Generative Evaluation of Audio Representations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch5_gear/isomap.html">Manifold Embedding of Spectrotemporal Modulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5_gear/amfm_synth.html">AM/FM Chirp Dataset Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5_gear/eval.html">Generative Evaluation of Audio Representations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5_gear/knn.html">Nearest Neighbors Regression of Synth Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch5_gear/4_gear.html">Notebook 4 - GEAR: Generative Evaluation of Audio Representations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differentiable Time-Frequency Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/mesostructures_loss.html">Differentiable Time-Frequency Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/parametric_synth.html">Synthesizer Parameter Retrieval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/dtfa.html">DTFA: Differentiable Time-Frequency Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/ddsp.html">Differentiable digital signal processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/micro_to_meso.html">From the microscale to the mesoscale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/gradient_viz.html">Parameter Estimation by Gradient Descent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch6_dtfa/5_dtfa.html">Notebook 5 - DTFA: Differentiable Time-Frequency Analysis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
@@ -208,8 +220,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/references.html">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/acknowledgements.html">Acknowledgements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/authors.html">Authors</a></li>
-
-
 </ul>
 
     </div>
@@ -419,8 +429,8 @@ We give practical examples of scattering transforms for audio signals, but mainl
 <p>We aim for this book to be relevant to MIR researchers working on music classification, timbre representation, music similarity, and differentiable signal processing for music analysis and synthesis/digital audio effects.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Stay up-to-date with examples in the <a class="reference external" href="https://www.kymat.io/codereference.html">Kymatio documentation</a>.
-Join and contribute to the Kymatio community on <a class="reference external" href="https://github.com/kymatio/kymatio">Github</a>. Submit issues, pull requests and feature requests.
+<p>You can find more examples in the <a class="reference external" href="https://www.kymat.io/codereference.html">Kymatio documentation</a>.
+Join and contribute to the Kymatio community on <a class="reference external" href="https://github.com/kymatio/kymatio">Github</a> by submitting issues, pull requests, and feature requests.
 Stay up-to-date with new Kymatio features and releases on <a class="reference external" href="https://twitter.com/KymatioWavelets/">X</a>.</p>
 </div>
 </section>
@@ -465,11 +475,11 @@ Stay up-to-date with new Kymatio features and releases on <a class="reference ex
       </div>
     </a>
     <a class="right-next"
-       href="../ch2_wavelets/definition.html"
+       href="why_wavelets.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Definitions</p>
+        <p class="prev-next-title">Why use wavelets in music information retrieval?</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -522,8 +532,8 @@ By Cyrus Vahidi, Christopher Mitcheltree, Vincent Lostanlen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

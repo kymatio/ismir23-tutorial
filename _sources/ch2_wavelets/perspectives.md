@@ -1,1 +1,0 @@
-# Perspectives on Wavelets and Scattering

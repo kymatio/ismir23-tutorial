@@ -1,1 +1,0 @@
-# Synthesizer Parameter Retrieval

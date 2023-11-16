@@ -14,7 +14,7 @@ We give practical examples of scattering transforms for audio signals, but mainl
 We aim for this book to be relevant to MIR researchers working on music classification, timbre representation, music similarity, and differentiable signal processing for music analysis and synthesis/digital audio effects.
 
 ```{tip}
-Stay up-to-date with examples in the [Kymatio documentation](https://www.kymat.io/codereference.html).
-Join and contribute to the Kymatio community on [Github](https://github.com/kymatio/kymatio). Submit issues, pull requests and feature requests.
+You can find more examples in the [Kymatio documentation](https://www.kymat.io/codereference.html).
+Join and contribute to the Kymatio community on [Github](https://github.com/kymatio/kymatio) by submitting issues, pull requests, and feature requests.
 Stay up-to-date with new Kymatio features and releases on [X](https://twitter.com/KymatioWavelets/).
 ```

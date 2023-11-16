@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>1D Morlet Wavelets &#8212; Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Wavelet Filterbanks" href="filterbanks.html" />
-    <link rel="prev" title="Introduction to Wavelets" href="intro.html" />
+    <link rel="prev" title="What is a wavelet?" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,9 +173,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/tutorial_scope.html">Tutorial Scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1_intro/why_wavelets.html">Why use wavelets in music information retrieval?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics of wavelets</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Wavelets</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to Wavelets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">What is a wavelet?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1D Morlet Wavelets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="filterbanks.html">Wavelet Filterbanks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="morlet2d.html">2D Morlet Wavelets</a></li>
@@ -220,8 +220,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/references.html">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/acknowledgements.html">Acknowledgements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch7_resources/authors.html">Authors</a></li>
-
-
 </ul>
 
     </div>
@@ -419,7 +417,30 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d-morlet-wavelets">
 <h1>1D Morlet Wavelets<a class="headerlink" href="#d-morlet-wavelets" title="Permalink to this heading">#</a></h1>
-<p>Coming soon.</p>
+<p>For scattering transforms we use Morlet wavelets (also known as Gabor wavelets).
+This is because they provide the best trade-off between temporal and spectral resolution.
+Mathematically, the Morlet wavelet is expressed as a complex sinusoid modulated by a Gaussian window.</p>
+<p>This can be expressed in code as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span> <span class="k">as</span> <span class="nn">tr</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span>
+
+
+<span class="k">def</span> <span class="nf">calc_morlet_psi_simple</span><span class="p">(</span><span class="n">t</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">freq_hz</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">sig</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        :param t: time values in seconds centered at 0</span>
+<span class="sd">        :param freq: center frequency of the wavelet in Hz</span>
+<span class="sd">        :param sig: standard deviation of the gaussian</span>
+<span class="sd">        :return: a complex tensor of wavelet coefficients in the time domain</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">t</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">complex_sinusoid</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tr</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">freq_hz</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+    <span class="n">gaussian</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">sig</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">complex_sinusoid</span> <span class="o">*</span> <span class="n">gaussian</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Under construction, more coming soon.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -458,7 +479,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction to Wavelets</p>
+        <p class="prev-next-title">What is a wavelet?</p>
       </div>
     </a>
     <a class="right-next"
@@ -519,8 +540,8 @@ By Cyrus Vahidi, Christopher Mitcheltree, Vincent Lostanlen
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
