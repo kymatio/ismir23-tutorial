@@ -65,12 +65,11 @@ Feel free to submit issues, pull requests, and feature requests.
 ## Authors
 ----------
 
-[**Cyrus Vahidi**](https://www.twitter.com/cyrusasfa) 
 ```{image} /assets/cv.jpeg
 :alt: Cyrus Vahidi
 :width: 300px
 ```
-[**Cyrus Vahidi**](https://www.cyrusvahidi.com/) 
+[**Cyrus Vahidi**](https://www.twitter.com/cyrusasfa) 
 
 
 ```{image} /assets/cm.jpeg
