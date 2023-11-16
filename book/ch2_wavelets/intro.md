@@ -1,3 +1,3 @@
-# Introduction to Wavelets
+# What is a wavelet?
 
 Coming soon.
