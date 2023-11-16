@@ -10,8 +10,7 @@ parts:
     - file: ch1_intro/tutorial_scope
     - file: ch1_intro/why_wavelets
 
-
-  - caption: 'Basics of wavelets'
+  - caption: 'Introduction to Wavelets'
     chapters:
     - file: ch2_wavelets/intro
     - file: ch2_wavelets/morlet1d
