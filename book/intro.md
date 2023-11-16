@@ -1,9 +1,8 @@
-Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing
-=========================================================================
+# Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing
 
 This is a web book written for a tutorial session of the 24th International Society for Music Information Retrieval Conference, Nov. 5th, 2023 held in Milan, Italy. The ISMIR conference is the world’s leading research forum on processing, searching, organising and accessing music-related data.
 
-Overview
+## Overview
 -----------
 
 This book embarks on an exploration of music signal processing using the Kymatio toolkit: a deep dive into wavelet scattering for audio.
@@ -23,13 +22,13 @@ This tutorial encompasses:
 5. A critical evaluation of the advantages and limitations of scattering within MIR research.
 6. Concluding remarks that highlight both the current limitations and prospective directions of scattering in the field.
 
-Motivation
+## Motivation
 -------------
 For the MIR academic community, the significance of scattering transforms in audio classification, timbre representation, and other areas is of paramount importance. Recent scholarly work underscores the capabilities of JTFS in representing distinctions among musical instruments and their associated playing techniques {cite}`jasmp`. Moreover, recent advancements have seen JTFS being employed to fine-tune parameters in sound synthesis {cite}`vahidi2023mesostructures`.
 
 This tutorial is intended for both MIR scholars and professionals, offering a rigorous introduction to wavelet scattering. Additionally, it will be invaluable for those in the fields of audio engineering and signal processing seeking an advanced understanding of MIR methodologies.
 
-Outcomes
+## Outcomes
 -----------
 The content of this book has been designed to be delivered as a tutorial at ISMIR 2023. 
 We intend for this to be an introductory overview of theory and applications of scattering transforms in audio processing and music information retrieval, with strong relevance to the ISMIR community and beyond.
@@ -58,12 +57,12 @@ For applications in deep learning and MIR, we run the reader through practical e
 * Automatic differentiation of scattering transforms in PyTorch.
 * Parametric synthesizer similarity representation and retrieval with scattering.
 
-Contribute to the Kymatio community
+## Contribute to the Kymatio community
 --------------------------------------
 We welcome contributions and participation via the [Kymatio](kymat.io) community on [Github](https://github.com/kymatio/kymatio).
 Feel free to submit issues, pull requests, and feature requests.
 
-Authors
+## Authors
 ----------
 
 [**Cyrus Vahidi**](https://www.twitter.com/cyrusasfa) 
@@ -86,7 +85,9 @@ Authors
 ```
 [**Vincent Lostanlen**](https://lostanlencom)
 
-Cite this book
+More information can be found on the {doc}`../ch7_resources/authors` page.
+
+## Cite this book
 -----------------
 If you use this book or any of the accompanying code in your work please consider citing it.
 
@@ -101,12 +102,12 @@ If you use this book or any of the accompanying code in your work please conside
 }
 ```
 
-Contents
+## Contents
 -----------
 ```{tableofcontents}
 ```
 
-References
+## References
 -----------
 ```{bibliography}
 ```
