@@ -1,6 +1,0 @@
-ghp-import==2.1.0
-jupyter-book==0.15.1
-kymatio==0.4.0.dev0
-librosa==0.10.1
-pip-chill==1.0.3
-torch==2.1.0
