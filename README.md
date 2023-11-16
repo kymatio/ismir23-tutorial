@@ -20,14 +20,13 @@ The ISMIR conference is the world’s leading research forum on processing, sear
 # Cite 
 
 ```
-@book{kymatio_ismir23:book,
-    Author = {Vahidi, Cyrus and Mitcheltree, Chris and Lostanlen, Vincent},
-    Month = Nov.,
-    Publisher = {https://kymatio.github.io/ismir23-tutorial},
-    Title = {Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing},
-    Year = 2023,
-    Url = {https://kymatio.github.io/ismir23-tutorial},
-    doi = {}
+@book{vahidi2023kymatio,
+    title={Kymatio: Deep Learning meets Wavelet Theory for Music Signal Processing},
+    author={Cyrus Vahidi and Christopher Mitcheltree and Vincent Lostanlen},
+    publisher={ISMIR},
+    month={Nov.},
+    year={2023},
+    url={https://kymatio.github.io/ismir23-tutorial},
 }
 ```
 
