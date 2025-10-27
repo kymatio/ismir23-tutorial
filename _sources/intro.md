@@ -76,7 +76,7 @@ Feel free to submit issues, pull requests, and feature requests.
 :alt: Chirstopher Mitcheltree
 :width: 300px
 ```
-[**Christopher Mitcheltree**](https://christhetr.ee/)
+[**Christopher Mitcheltree**](https://www.twitter.com/frozenmango)
 
 ```{image} /assets/vl.jpeg
 :alt: Vincent Lostanlen

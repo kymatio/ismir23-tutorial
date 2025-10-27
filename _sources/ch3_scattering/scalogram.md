@@ -1,3 +1,0 @@
-# Wavelet Scalogram
-
-Coming soon.
