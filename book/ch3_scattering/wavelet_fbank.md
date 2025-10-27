@@ -1,3 +1,0 @@
-# Wavelet Filterbanks
-
-Coming soon.
